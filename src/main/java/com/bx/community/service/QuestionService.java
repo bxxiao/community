@@ -2,6 +2,8 @@ package com.bx.community.service;
 
 import com.bx.community.dto.PaginationDTO;
 import com.bx.community.dto.QuestionDTO;
+import com.bx.community.exception.CustomizeErrorCode;
+import com.bx.community.exception.CustomizeException;
 import com.bx.community.mapper.QuestionMapper;
 import com.bx.community.mapper.UserMapper;
 import com.bx.community.model.Question;
@@ -73,6 +75,10 @@ public class QuestionService {
 
     public QuestionDTO getById(Integer id) {
         Question question = qMapper.selectByPrimaryKey(id);
+        // 请求的问题可能不存在，抛出异常，跳转至错误页面
+        if(question==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO dto = new QuestionDTO();
         BeanUtils.copyProperties(question, dto);
         User user = uMapper.selectByPrimaryKey(question.getCreator());
@@ -87,7 +93,11 @@ public class QuestionService {
             qMapper.insert(question);
         }else {
             question.setGmtModified(question.getGmtCreate());
-            qMapper.updateByPrimaryKeySelective(question);
+            int ret = qMapper.updateByPrimaryKeySelective(question);
+            //更新失败
+            if(ret!=1){
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 
