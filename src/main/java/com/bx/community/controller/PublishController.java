@@ -25,13 +25,14 @@ public class PublishController {
     }
 
     /**
-     * 发布问题
+     * 发布或编辑问题
      */
     @PostMapping("/publish")
     public String doPublish(
-            String title, String description, String tag,@RequestParam(required = false) Integer id,
+            String title, String description, String tag,@RequestParam(required = false) Long id,
             HttpServletRequest request, Model model
     ) {
+        // 将信息放在model中，字段检验不通过时可以在前端显示
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
@@ -66,7 +67,7 @@ public class PublishController {
     }
 
     @GetMapping("/publish/{id}")
-    public String edit(@PathVariable("id") Integer id, Model model){
+    public String toEdit(@PathVariable("id") Long id, Model model){
         Question question = service.selectById(id);
         model.addAttribute("title", question.getTitle());
         model.addAttribute("description", question.getDescription());

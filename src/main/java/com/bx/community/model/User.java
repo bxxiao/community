@@ -1,7 +1,7 @@
 package com.bx.community.model;
 
 public class User {
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -17,7 +17,7 @@ public class User {
 
     private String avatarUrl;
 
-    public User(Integer id, String name, String accountId, String token, Long gmtCreate, Long gmtModified, String bio, String avatarUrl) {
+    public User(Long id, String name, String accountId, String token, Long gmtCreate, Long gmtModified, String bio, String avatarUrl) {
         this.id = id;
         this.name = name;
         this.accountId = accountId;
@@ -32,11 +32,11 @@ public class User {
         super();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

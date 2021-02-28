@@ -4,6 +4,7 @@ import com.bx.community.dto.PaginationDTO;
 import com.bx.community.dto.QuestionDTO;
 import com.bx.community.exception.CustomizeErrorCode;
 import com.bx.community.exception.CustomizeException;
+import com.bx.community.mapper.QuestionExtMapper;
 import com.bx.community.mapper.QuestionMapper;
 import com.bx.community.mapper.UserMapper;
 import com.bx.community.model.Question;
@@ -25,6 +26,9 @@ public class QuestionService {
 
     @Autowired
     private QuestionMapper qMapper;
+
+    @Autowired
+    private QuestionExtMapper qExtMapper;
 
 
     public PaginationDTO listQuestion(Integer size, Integer page) {
@@ -49,7 +53,7 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public PaginationDTO list(Integer userId, Integer page, Integer size) {
+    public PaginationDTO list(Long userId, Integer page, Integer size) {
         Integer offset = size*(page-1);
         List<Question> questions = qMapper.listByUId(userId, offset, size);
         List<QuestionDTO> questionDTOS = new ArrayList<>();
@@ -66,14 +70,14 @@ public class QuestionService {
         paginationDTO.setData(questionDTOS);
         QuestionExample example = new QuestionExample();
         example.or().andCreatorEqualTo(userId);
-        Integer totalCount = qMapper.countByExample(example);
-        paginationDTO.setPagination(totalCount, page, size);
+        Long totalCount = qMapper.countByExample(example);
+        paginationDTO.setPagination(Math.toIntExact(totalCount), page, size);
 
         return paginationDTO;
 
     }
 
-    public QuestionDTO getById(Integer id) {
+    public QuestionDTO getById(Long id) {
         Question question = qMapper.selectByPrimaryKey(id);
         // 请求的问题可能不存在，抛出异常，跳转至错误页面
         if(question==null){
@@ -101,7 +105,22 @@ public class QuestionService {
         }
     }
 
-    public Question selectById(Integer id) {
+    public Question selectById(Long id) {
         return qMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     *
+     */
+    public void increView(Long id) {
+        // 该方式存在并发问题（丢失修改）
+        // Question question = qMapper.selectByPrimaryKey(id);
+        // Question update = new Question();
+        // update.setId(id);
+        // update.setViewCount(question.getViewCount()+1);
+        // qMapper.updateByPrimaryKeySelective(update);
+
+        // 在sql中使用 view_count = view_count + 1的方式
+        qExtMapper.incView(1, id);
     }
 }

@@ -3,11 +3,11 @@
 <mapper namespace="com.bx.community.mapper.QuestionMapper">
     <resultMap id="BaseResultMap" type="com.bx.community.model.Question">
         <constructor>
-            <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <idArg column="ID" javaType="java.lang.Long" jdbcType="BIGINT"/>
             <arg column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR"/>
             <arg column="GMT_CREATE" javaType="java.lang.Long" jdbcType="BIGINT"/>
             <arg column="GMT_MODIFIED" javaType="java.lang.Long" jdbcType="BIGINT"/>
-            <arg column="CREATOR" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="CREATOR" javaType="java.lang.Long" jdbcType="BIGINT"/>
             <arg column="COMMENT_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="VIEW_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="LIKE_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
@@ -16,11 +16,11 @@
     </resultMap>
     <resultMap id="ResultMapWithBLOBs" type="com.bx.community.model.Question">
         <constructor>
-            <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <idArg column="ID" javaType="java.lang.Long" jdbcType="BIGINT"/>
             <arg column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR"/>
             <arg column="GMT_CREATE" javaType="java.lang.Long" jdbcType="BIGINT"/>
             <arg column="GMT_MODIFIED" javaType="java.lang.Long" jdbcType="BIGINT"/>
-            <arg column="CREATOR" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="CREATOR" javaType="java.lang.Long" jdbcType="BIGINT"/>
             <arg column="COMMENT_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="VIEW_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="LIKE_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
@@ -101,7 +101,7 @@
         <if test="distinct">
             distinct
         </if>
-        'false' as QUERYID,
+        'true' as QUERYID,
         <include refid="Base_Column_List"/>
         ,
         <include refid="Blob_Column_List"/>
@@ -118,7 +118,7 @@
         <if test="distinct">
             distinct
         </if>
-        'false' as QUERYID,
+        'true' as QUERYID,
         <include refid="Base_Column_List"/>
         from QUESTION
         <if test="_parameter != null">
@@ -128,17 +128,17 @@
             order by ${orderByClause}
         </if>
     </select>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
         select
         <include refid="Base_Column_List"/>
         ,
         <include refid="Blob_Column_List"/>
         from QUESTION
-        where ID = #{id,jdbcType=INTEGER}
+        where ID = #{id,jdbcType=BIGINT}
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from QUESTION
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
     <delete id="deleteByExample" parameterType="com.bx.community.model.QuestionExample">
         delete from QUESTION
@@ -151,8 +151,8 @@
       GMT_MODIFIED, CREATOR, COMMENT_COUNT, 
       VIEW_COUNT, LIKE_COUNT, TAG, 
       DESCRIPTION)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=BIGINT}, 
-      #{gmtModified,jdbcType=BIGINT}, #{creator,jdbcType=INTEGER}, #{commentCount,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=BIGINT}, 
+      #{gmtModified,jdbcType=BIGINT}, #{creator,jdbcType=BIGINT}, #{commentCount,jdbcType=INTEGER}, 
       #{viewCount,jdbcType=INTEGER}, #{likeCount,jdbcType=INTEGER}, #{tag,jdbcType=VARCHAR}, 
       #{description,jdbcType=CLOB})
   </insert>
@@ -192,7 +192,7 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
-                #{id,jdbcType=INTEGER},
+                #{id,jdbcType=BIGINT},
             </if>
             <if test="title != null">
                 #{title,jdbcType=VARCHAR},
@@ -204,7 +204,7 @@
                 #{gmtModified,jdbcType=BIGINT},
             </if>
             <if test="creator != null">
-                #{creator,jdbcType=INTEGER},
+                #{creator,jdbcType=BIGINT},
             </if>
             <if test="commentCount != null">
                 #{commentCount,jdbcType=INTEGER},
@@ -223,7 +223,7 @@
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="com.bx.community.model.QuestionExample" resultType="java.lang.Integer">
+    <select id="countByExample" parameterType="com.bx.community.model.QuestionExample" resultType="java.lang.Long">
         select count(*) from QUESTION
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
@@ -233,7 +233,7 @@
         update QUESTION
         <set>
             <if test="record.id != null">
-                ID = #{record.id,jdbcType=INTEGER},
+                ID = #{record.id,jdbcType=BIGINT},
             </if>
             <if test="record.title != null">
                 TITLE = #{record.title,jdbcType=VARCHAR},
@@ -245,7 +245,7 @@
                 GMT_MODIFIED = #{record.gmtModified,jdbcType=BIGINT},
             </if>
             <if test="record.creator != null">
-                CREATOR = #{record.creator,jdbcType=INTEGER},
+                CREATOR = #{record.creator,jdbcType=BIGINT},
             </if>
             <if test="record.commentCount != null">
                 COMMENT_COUNT = #{record.commentCount,jdbcType=INTEGER},
@@ -269,11 +269,11 @@
     </update>
     <update id="updateByExampleWithBLOBs" parameterType="map">
         update QUESTION
-        set ID = #{record.id,jdbcType=INTEGER},
+        set ID = #{record.id,jdbcType=BIGINT},
         TITLE = #{record.title,jdbcType=VARCHAR},
         GMT_CREATE = #{record.gmtCreate,jdbcType=BIGINT},
         GMT_MODIFIED = #{record.gmtModified,jdbcType=BIGINT},
-        CREATOR = #{record.creator,jdbcType=INTEGER},
+        CREATOR = #{record.creator,jdbcType=BIGINT},
         COMMENT_COUNT = #{record.commentCount,jdbcType=INTEGER},
         VIEW_COUNT = #{record.viewCount,jdbcType=INTEGER},
         LIKE_COUNT = #{record.likeCount,jdbcType=INTEGER},
@@ -285,11 +285,11 @@
     </update>
     <update id="updateByExample" parameterType="map">
         update QUESTION
-        set ID = #{record.id,jdbcType=INTEGER},
+        set ID = #{record.id,jdbcType=BIGINT},
         TITLE = #{record.title,jdbcType=VARCHAR},
         GMT_CREATE = #{record.gmtCreate,jdbcType=BIGINT},
         GMT_MODIFIED = #{record.gmtModified,jdbcType=BIGINT},
-        CREATOR = #{record.creator,jdbcType=INTEGER},
+        CREATOR = #{record.creator,jdbcType=BIGINT},
         COMMENT_COUNT = #{record.commentCount,jdbcType=INTEGER},
         VIEW_COUNT = #{record.viewCount,jdbcType=INTEGER},
         LIKE_COUNT = #{record.likeCount,jdbcType=INTEGER},
@@ -311,7 +311,7 @@
                 GMT_MODIFIED = #{gmtModified,jdbcType=BIGINT},
             </if>
             <if test="creator != null">
-                CREATOR = #{creator,jdbcType=INTEGER},
+                CREATOR = #{creator,jdbcType=BIGINT},
             </if>
             <if test="commentCount != null">
                 COMMENT_COUNT = #{commentCount,jdbcType=INTEGER},
@@ -329,33 +329,34 @@
                 DESCRIPTION = #{description,jdbcType=CLOB},
             </if>
         </set>
-        where ID = #{id,jdbcType=INTEGER}
+        where ID = #{id,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bx.community.model.Question">
     update QUESTION
     set TITLE = #{title,jdbcType=VARCHAR},
       GMT_CREATE = #{gmtCreate,jdbcType=BIGINT},
       GMT_MODIFIED = #{gmtModified,jdbcType=BIGINT},
-      CREATOR = #{creator,jdbcType=INTEGER},
+      CREATOR = #{creator,jdbcType=BIGINT},
       COMMENT_COUNT = #{commentCount,jdbcType=INTEGER},
       VIEW_COUNT = #{viewCount,jdbcType=INTEGER},
       LIKE_COUNT = #{likeCount,jdbcType=INTEGER},
       TAG = #{tag,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=CLOB}
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
     <update id="updateByPrimaryKey" parameterType="com.bx.community.model.Question">
     update QUESTION
     set TITLE = #{title,jdbcType=VARCHAR},
       GMT_CREATE = #{gmtCreate,jdbcType=BIGINT},
       GMT_MODIFIED = #{gmtModified,jdbcType=BIGINT},
-      CREATOR = #{creator,jdbcType=INTEGER},
+      CREATOR = #{creator,jdbcType=BIGINT},
       COMMENT_COUNT = #{commentCount,jdbcType=INTEGER},
       VIEW_COUNT = #{viewCount,jdbcType=INTEGER},
       LIKE_COUNT = #{likeCount,jdbcType=INTEGER},
       TAG = #{tag,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
+
 
     <select id="count" resultType="java.lang.Integer">
         select count(1) from question

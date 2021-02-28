@@ -19,6 +19,9 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Autowired
     private UserMapper mapper;
 
+    /**
+     * 检查cookie中是否有token，有则尝试查询对应的user，放入session
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie[] cookies = request.getCookies();

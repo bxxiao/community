@@ -15,7 +15,9 @@ public class QuestionController {
     private QuestionService service;
 
     @GetMapping("/question/{id}")
-    public String question(@PathVariable Integer id, Model model){
+    public String question(@PathVariable Long id, Model model){
+        // 先增加再获取dto
+        service.increView(id);
         QuestionDTO dto = service.getById(id);
         model.addAttribute("question", dto);
         return "question";

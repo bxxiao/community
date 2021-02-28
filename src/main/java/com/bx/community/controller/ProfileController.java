@@ -31,6 +31,7 @@ public class ProfileController {
 
         if("questions".equals(action)){
             PaginationDTO paginationDTO = service.list(user.getId(), page, size);
+            // section 表示当前是哪个模块，有“我的问题”，“最新回复”
             model.addAttribute("section", "questions");
             model.addAttribute("sectionName", "我的提问");
             model.addAttribute("pagination", paginationDTO);

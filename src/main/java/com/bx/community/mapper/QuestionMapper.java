@@ -2,18 +2,18 @@ package com.bx.community.mapper;
 
 import com.bx.community.model.Question;
 import com.bx.community.model.QuestionExample;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 @Mapper
 public interface QuestionMapper {
-    int countByExample(QuestionExample example);
+    long countByExample(QuestionExample example);
 
     int deleteByExample(QuestionExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Question record);
 
@@ -23,7 +23,7 @@ public interface QuestionMapper {
 
     List<Question> selectByExample(QuestionExample example);
 
-    Question selectByPrimaryKey(Integer id);
+    Question selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Question record, @Param("example") QuestionExample example);
 
@@ -39,7 +39,7 @@ public interface QuestionMapper {
 
     List<Question> list(@Param("offset") Integer offset, @Param("size") Integer size);
 
-    List<Question> listByUId(@Param("userId") Integer userId, @Param("offset") Integer offset,@Param("size") Integer size);
+    List<Question> listByUId(@Param("userId") Long userId, @Param("offset") Integer offset, @Param("size") Integer size);
 
     Integer count();
 }
