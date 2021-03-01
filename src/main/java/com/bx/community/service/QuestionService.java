@@ -94,7 +94,7 @@ public class QuestionService {
         if(question.getId()==null || question.getId() == 0){
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
-            qMapper.insert(question);
+            qMapper.insertSelective(question);
         }else {
             question.setGmtModified(question.getGmtCreate());
             int ret = qMapper.updateByPrimaryKeySelective(question);

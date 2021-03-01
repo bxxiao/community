@@ -2,47 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cc135de-30ed-47ae-a93c-5ec815bcd117" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a107d59e-0f39-43d7-ac92-097faa0491ef.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a107d59e-0f39-43d7-ac92-097faa0491ef.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a107d59e-0f39-43d7-ac92-097faa0491ef/storage_v2/_src_/database/COMMUNITY1.iLnKbQ/schema/PUBLIC.aaZQjQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a107d59e-0f39-43d7-ac92-097faa0491ef/storage_v2/_src_/database/COMMUNITY1.iLnKbQ/schema/PUBLIC.aaZQjQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community.iml" beforeDir="false" afterPath="$PROJECT_DIR$/community.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/advice/MyExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/advice/MyExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/PublishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/PublishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/dto/QuestionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/dto/QuestionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/exception/ICustomizeErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/exception/ICustomizeErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/interceptor/SessionInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/interceptor/SessionInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/mapper/QuestionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/mapper/QuestionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/model/QuestionExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/model/QuestionExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/model/UserExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/model/UserExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/dto/CommentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/dto/CommentCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/service/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bx/community/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bx/community/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/QuestionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/QuestionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/community.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/advice/MyExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/advice/MyExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/controller/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/controller/ProfileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/controller/PublishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/controller/PublishController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/community.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/community.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/controller/CommentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/dto/QuestionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/dto/QuestionDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/interceptor/SessionInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/interceptor/SessionInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/mapper/QuestionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/mapper/QuestionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/QuestionExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/QuestionExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/QuestionExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/QuestionExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/QuestionExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/QuestionExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/UserExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/UserExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/UserExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/UserExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/model/UserExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/model/UserExample$GeneratedCriteria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/dto/CommentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/dto/CommentDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/service/CommentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bx/community/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bx/community/service/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/QuestionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/QuestionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bx/community/CommunityApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bx/community/CommunityApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/community.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/community.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/question.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,10 +138,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.bx.community.service" />
-      <recent name="com.bx.community.mapper" />
-      <recent name="com.bx.community.interceptor" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\AAAFrequently-used\Project\MyGithubPublicProject\community\src\main\resources\templates\include" />
+      <recent name="E:\AAAFrequently-used\Project\MyGithubPublicProject\community\src\main\resources\templates" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\AAAFrequently-used\Project\MyGithubPublicProject\community\src\main\resources\db\migration" />
@@ -173,15 +150,16 @@
       <recent name="E:\AAAFrequently-used\Project\MyGithubPublicProject\community\src\main\java\com\bx\community\exception" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.bx.community.eums" />
       <recent name="com.bx.community.dto" />
+      <recent name="com.bx.community.eums" />
       <recent name="com.bx.community.mapper" />
       <recent name="com.bx.community.controller" />
       <recent name="com.bx.community.exception" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\AAAFrequently-used\Project\MyGithubPublicProject\community\src\main\resources\templates\include" />
-      <recent name="E:\AAAFrequently-used\Project\MyGithubPublicProject\community\src\main\resources\templates" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.bx.community.service" />
+      <recent name="com.bx.community.mapper" />
+      <recent name="com.bx.community.interceptor" />
     </key>
   </component>
   <component name="RunManager">
@@ -240,7 +218,9 @@
       <workItem from="1612774120232" duration="4102000" />
       <workItem from="1612838963186" duration="30000" />
       <workItem from="1614442721091" duration="825000" />
-      <workItem from="1614479595528" duration="17340000" />
+      <workItem from="1614479595528" duration="17441000" />
+      <workItem from="1614576642528" duration="9182000" />
+      <workItem from="1614605630765" duration="5863000" />
     </task>
     <servers />
   </component>
@@ -268,38 +248,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="544" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1612838830062" />
-    <state width="1493" height="16" key="GridCell.Tab.0.bottom" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
-    <state width="1493" height="16" key="GridCell.Tab.0.center" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
+    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
-    <state width="1493" height="16" key="GridCell.Tab.0.left" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
+    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
-    <state width="1493" height="16" key="GridCell.Tab.0.right" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
+    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
-    <state width="1493" height="16" key="GridCell.Tab.1.bottom" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
+    <state width="1493" height="2" key="GridCell.Tab.1.bottom" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
-    <state width="1493" height="16" key="GridCell.Tab.1.center" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
+    <state width="1493" height="2" key="GridCell.Tab.1.center" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
-    <state width="1493" height="16" key="GridCell.Tab.1.left" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
+    <state width="1493" height="2" key="GridCell.Tab.1.left" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
-    <state width="1493" height="16" key="GridCell.Tab.1.right" timestamp="1614503410318">
+    <state width="1493" height="2" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
+    <state width="1493" height="2" key="GridCell.Tab.1.right" timestamp="1614610781810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="16" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1614503410318" />
+    <state width="1493" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1614610781810" />
     <state width="1493" height="416" key="GridCell.Tab.2.bottom" timestamp="1612771048307">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -328,10 +308,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1612344619917" />
-    <state x="490" y="154" width="561" height="524" key="StructurePopup" timestamp="1614526301547">
+    <state x="459" y="163" width="561" height="524" key="StructurePopup" timestamp="1614597821247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="490" y="154" width="561" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1614526301547" />
+    <state x="459" y="163" width="561" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1614597821247" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1612665628602">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -348,10 +328,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="546" y="0" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1536.824@0.0.1536.824" timestamp="1612318302266" />
-    <state x="465" y="140" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1614502634355">
+    <state x="465" y="140" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1614608689741">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="140" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1614502634355" />
+    <state x="465" y="140" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1614608689741" />
     <state x="630" y="76" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1612251149169">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -360,17 +340,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="80" y="90" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1612771867039" />
-    <state x="178" y="114" key="new project wizard" timestamp="1612838850620">
+    <state x="178" y="114" key="new project wizard" timestamp="1614598125825">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="178" y="114" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1612838850620" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1614513917069">
+    <state x="178" y="114" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1614598125825" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1614610438759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614513917069" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614526287930">
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614610438759" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614610223850">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1614526287930" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1614610223850" />
   </component>
 </project>

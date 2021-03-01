@@ -1,15 +1,24 @@
 package com.bx.community.service;
 
+import com.bx.community.dto.CommentDTO;
 import com.bx.community.eums.CommentTypeEnum;
 import com.bx.community.exception.CustomizeErrorCode;
 import com.bx.community.exception.CustomizeException;
 import com.bx.community.mapper.CommentMapper;
 import com.bx.community.mapper.QuestionExtMapper;
 import com.bx.community.mapper.QuestionMapper;
-import com.bx.community.model.Comment;
-import com.bx.community.model.Question;
+import com.bx.community.mapper.UserMapper;
+import com.bx.community.model.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class CommentService {
@@ -23,6 +32,10 @@ public class CommentService {
     @Autowired
     private QuestionExtMapper questionExtMapper;
 
+    @Autowired
+    private UserMapper userMapper;
+
+    @Transactional
     public void insert(Comment comment) {
         if (comment.getParentId() == null || comment.getParentId() == 0) {
             throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
@@ -53,5 +66,41 @@ public class CommentService {
             questionExtMapper.incCommentCount(1, question.getId());
         }
 
+    }
+
+    public List<CommentDTO> listByQuestionId(Long id) {
+        // 根据问题id和评论类型，查询出对应的评论
+        CommentExample commentExample = new CommentExample();
+        commentExample.or().andParentIdEqualTo(id)
+                .andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+        commentExample.setOrderByClause("gmt_create desc");
+        List<Comment> comments = commentMapper.selectByExample(commentExample);
+
+        if(comments.size()==0){
+            return new ArrayList<>();
+        }
+
+        // 获取去重的评论人的id set
+        Set<Long> commentators = comments.stream().map(comment -> comment.getCommentator()).collect(Collectors.toSet());
+        // 将set转换为ArrayList，并查询出user
+        List<Long> userIds = new ArrayList();
+        userIds.addAll(commentators);
+
+        UserExample userExample = new UserExample();
+        userExample.or().andIdIn(userIds);
+        List<User> users = userMapper.selectByExample(userExample);
+
+        // 将 users 转换为 userId-user 的 map
+        Map<Long, User> userMap = users.stream().collect(Collectors.toMap(user -> user.getId(), user -> user));
+
+        // 转换 comment 为 commentDTO
+        List<CommentDTO> commentDTOS = comments.stream().map(comment -> {
+            CommentDTO commentDTO = new CommentDTO();
+            BeanUtils.copyProperties(comment, commentDTO);
+            commentDTO.setUser(userMap.get(comment.getCommentator()));
+            return commentDTO;
+        }).collect(Collectors.toList());
+
+        return commentDTOS;
     }
 }
