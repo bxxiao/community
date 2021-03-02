@@ -17,7 +17,9 @@ public class Comment {
 
     private String content;
 
-    public Comment(Long id, Long parentId, Integer type, Long commentator, Long gmtCreate, Long gmtModified, Long likeCount, String content) {
+    private Integer commentCount;
+
+    public Comment(Long id, Long parentId, Integer type, Long commentator, Long gmtCreate, Long gmtModified, Long likeCount, String content, Integer commentCount) {
         this.id = id;
         this.parentId = parentId;
         this.type = type;
@@ -26,6 +28,7 @@ public class Comment {
         this.gmtModified = gmtModified;
         this.likeCount = likeCount;
         this.content = content;
+        this.commentCount = commentCount;
     }
 
     public Comment() {
@@ -94,5 +97,13 @@ public class Comment {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 }

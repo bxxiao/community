@@ -7,7 +7,6 @@ import lombok.Data;
 public class QuestionDTO {
     private Long id;
     private String title;
-    private String description;
     private Long gmtCreate;
     private Long gmtModified;
     private Long creator;
@@ -15,5 +14,6 @@ public class QuestionDTO {
     private Integer viewCount;//访问次数
     private Integer likeCount;//喜欢的次数
     private String tag;
+    private String description;
     private User user;
 }

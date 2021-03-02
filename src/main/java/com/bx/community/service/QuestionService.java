@@ -11,12 +11,15 @@ import com.bx.community.model.Question;
 import com.bx.community.model.QuestionExample;
 import com.bx.community.model.User;
 import com.bx.community.model.UserExample;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -122,5 +125,27 @@ public class QuestionService {
 
         // 在sql中使用 view_count = view_count + 1的方式
         qExtMapper.incView(1, id);
+    }
+
+    public List<QuestionDTO> queryRelated(QuestionDTO questionDTO) {
+        if(StringUtils.isBlank(questionDTO.getTag())){
+            return new ArrayList<>();
+        }
+
+        String[] split = StringUtils.split(questionDTO.getTag(), ',');
+        // 将标签用 | 连接
+        String regexpTag = Arrays.stream(split).collect(Collectors.joining("|"));
+
+        Question question = new Question();
+        question.setId(questionDTO.getId());
+        question.setTag(regexpTag);
+        List<Question> related = qExtMapper.selectRelated(question);
+        List<QuestionDTO> result = related.stream().map(q -> {
+            QuestionDTO dto = new QuestionDTO();
+            BeanUtils.copyProperties(q, dto);
+            return dto;
+        }).collect(Collectors.toList());
+
+        return result;
     }
 }

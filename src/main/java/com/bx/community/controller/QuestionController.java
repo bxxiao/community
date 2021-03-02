@@ -2,6 +2,7 @@ package com.bx.community.controller;
 
 import com.bx.community.dto.CommentDTO;
 import com.bx.community.dto.QuestionDTO;
+import com.bx.community.eums.CommentTypeEnum;
 import com.bx.community.service.CommentService;
 import com.bx.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +23,21 @@ public class QuestionController {
     private CommentService commentService;
 
 
+    /**
+     * 跳转问题页面
+     */
     @GetMapping("/question/{id}")
     public String question(@PathVariable Long id, Model model){
         // 先增加再获取dto
         questionService.increView(id);
         QuestionDTO questionDTO = questionService.getById(id);
+        List<QuestionDTO> relatedQuestions = questionService.queryRelated(questionDTO);
 
-        List<CommentDTO> commentDTOS = commentService.listByQuestionId(id);
+        List<CommentDTO> commentDTOS = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
 
         model.addAttribute("question", questionDTO);
         model.addAttribute("comments", commentDTOS);
+        model.addAttribute("relatedQuestions", relatedQuestions);
         return "question";
     }
 }

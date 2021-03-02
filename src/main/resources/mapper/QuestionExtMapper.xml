@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bx.community.mapper.QuestionExtMapper">
+    <!--<resultMap id="BaseResultMap" type="com.bx.community.model.Question">-->
+    <!--    <constructor>-->
+    <!--        <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+    <!--        <arg column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+    <!--        <arg column="GMT_CREATE" javaType="java.lang.Long" jdbcType="BIGINT"/>-->
+    <!--        <arg column="GMT_MODIFIED" javaType="java.lang.Long" jdbcType="BIGINT"/>-->
+    <!--        <arg column="CREATOR" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+    <!--        <arg column="COMMENT_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+    <!--        <arg column="VIEW_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+    <!--        <arg column="LIKE_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+    <!--        <arg column="TAG" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+    <!--        <arg column="DESCRIPTION" javaType="java.lang.String" jdbcType="CLOB"/>-->
+    <!--    </constructor>-->
+    <!--</resultMap>-->
     <resultMap id="BaseResultMap" type="com.bx.community.model.Question">
-        <constructor>
-            <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="GMT_CREATE" javaType="java.lang.Long" jdbcType="BIGINT"/>
-            <arg column="GMT_MODIFIED" javaType="java.lang.Long" jdbcType="BIGINT"/>
-            <arg column="CREATOR" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="COMMENT_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="VIEW_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="LIKE_COUNT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="TAG" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="DESCRIPTION" javaType="java.lang.String" jdbcType="CLOB"/>
-        </constructor>
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="TITLE" jdbcType="VARCHAR" property="title"/>
+        <result column="GMT_CREATE" jdbcType="BIGINT" property="gmtCreate"/>
+        <result column="GMT_MODIFIED" jdbcType="BIGINT" property="gmtModified"/>
+        <result column="CREATOR" jdbcType="INTEGER" property="creator"/>
+        <result column="COMMENT_COUNT" jdbcType="INTEGER" property="commentCount"/>
+        <result column="VIEW_COUNT" jdbcType="INTEGER" property="viewCount"/>
+        <result column="LIKE_COUNT" jdbcType="INTEGER" property="likeCount"/>
+        <result column="TAG" jdbcType="VARCHAR" property="tag"/>
     </resultMap>
     <update id="incView">
         update question
@@ -26,4 +37,17 @@
         set comment_count = comment_count + #{addCount}
         where id = #{id};
     </update>
+
+    <select id="selectRelated" parameterType="com.bx.community.model.Question" resultMap="BaseResultMap">
+        select * from QUESTION
+        <where>
+            <if test="id != null">
+                and id != #{id}
+            </if>
+            <if test="tag != null and tag != ''">
+                and tag regexp #{tag}
+            </if>
+        </where>
+        order by gmt_create desc limit 20
+    </select>
 </mapper>

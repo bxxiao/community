@@ -4,10 +4,7 @@ import com.bx.community.dto.CommentDTO;
 import com.bx.community.eums.CommentTypeEnum;
 import com.bx.community.exception.CustomizeErrorCode;
 import com.bx.community.exception.CustomizeException;
-import com.bx.community.mapper.CommentMapper;
-import com.bx.community.mapper.QuestionExtMapper;
-import com.bx.community.mapper.QuestionMapper;
-import com.bx.community.mapper.UserMapper;
+import com.bx.community.mapper.*;
 import com.bx.community.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +32,9 @@ public class CommentService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private CommentExtMapper commentExtMapper;
+
     @Transactional
     public void insert(Comment comment) {
         if (comment.getParentId() == null || comment.getParentId() == 0) {
@@ -50,11 +50,13 @@ public class CommentService {
             // 回复评论
             Comment dbComment = commentMapper.selectByPrimaryKey(comment.getParentId());
             // 评论未找到
-            if(comment==null){
+            if(dbComment==null){
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
 
             commentMapper.insertSelective(comment);
+            // 增加回复的回复数
+            commentExtMapper.incCommentCount(1, dbComment.getId());
         }else {
             // 回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -68,11 +70,11 @@ public class CommentService {
 
     }
 
-    public List<CommentDTO> listByQuestionId(Long id) {
+    public List<CommentDTO> listByTargetId(Long id, CommentTypeEnum typeEnum) {
         // 根据问题id和评论类型，查询出对应的评论
         CommentExample commentExample = new CommentExample();
         commentExample.or().andParentIdEqualTo(id)
-                .andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+                .andTypeEqualTo(typeEnum.getType());
         commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
 

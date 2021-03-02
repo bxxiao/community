@@ -1,8 +1,10 @@
 package com.bx.community.controller;
 
+import com.bx.community.cache.TagCache;
 import com.bx.community.model.Question;
 import com.bx.community.model.User;
 import com.bx.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,8 @@ public class PublishController {
     private QuestionService service;
 
     @GetMapping("/publish")
-    public String publishPage() {
+    public String publishPage(Model model) {
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 
@@ -56,6 +59,12 @@ public class PublishController {
             return "publish";
         }
 
+        String invalid = TagCache.filterInvalid(tag);
+        if (StringUtils.isNotBlank(invalid)) {
+            model.addAttribute("error", "输入非法标签:" + invalid);
+            return "publish";
+        }
+
         Question question = new Question();
         question.setTitle(title);
         question.setDescription(description);
@@ -73,6 +82,7 @@ public class PublishController {
         model.addAttribute("description", question.getDescription());
         model.addAttribute("tag", question.getTag());
         model.addAttribute("id", question.getId());
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 }
