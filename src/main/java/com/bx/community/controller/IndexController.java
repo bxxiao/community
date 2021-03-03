@@ -4,6 +4,7 @@ import com.bx.community.dto.PaginationDTO;
 import com.bx.community.dto.QuestionDTO;
 import com.bx.community.mapper.UserMapper;
 import com.bx.community.model.User;
+import com.bx.community.service.NotificationService;
 import com.bx.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class IndexController {
 
     @Autowired
     private QuestionService service;
+
+    @Autowired
+    private NotificationService notificationService;
 
     /**
      * 跳转到index时，先判断是否已登录（根据cookie中的token），若已登录，将对应的User对象放到session

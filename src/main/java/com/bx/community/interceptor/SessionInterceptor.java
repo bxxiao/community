@@ -3,6 +3,7 @@ package com.bx.community.interceptor;
 import com.bx.community.mapper.UserMapper;
 import com.bx.community.model.User;
 import com.bx.community.model.UserExample;
+import com.bx.community.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -19,6 +20,9 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Autowired
     private UserMapper mapper;
 
+    @Autowired
+    private NotificationService notificationService;
+
     /**
      * 检查cookie中是否有token，有则尝试查询对应的user，放入session
      */
@@ -34,6 +38,9 @@ public class SessionInterceptor implements HandlerInterceptor {
                     List<User> users = mapper.selectByExample(example);
                     if (users != null && users.size()>0) {
                         request.getSession().setAttribute("user", users.get(0));
+                        // 放置未读通知数量
+                        Long unReadCount = notificationService.queryUnReadCount(users.get(0).getId());
+                        request.getSession().setAttribute("unReadCount", unReadCount);
                     }
                     break;
                 }

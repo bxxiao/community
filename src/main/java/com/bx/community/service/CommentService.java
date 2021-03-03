@@ -2,6 +2,8 @@ package com.bx.community.service;
 
 import com.bx.community.dto.CommentDTO;
 import com.bx.community.eums.CommentTypeEnum;
+import com.bx.community.eums.NotificationStatusEnum;
+import com.bx.community.eums.NotificationTypeEnum;
 import com.bx.community.exception.CustomizeErrorCode;
 import com.bx.community.exception.CustomizeException;
 import com.bx.community.mapper.*;
@@ -35,8 +37,15 @@ public class CommentService {
     @Autowired
     private CommentExtMapper commentExtMapper;
 
+    @Autowired
+    private NotificationMapper notificationMapper;
+
+    /**
+     * 发布评论
+     * 同时根据根据 评论类型 创建对应 通知（Notification）
+     */
     @Transactional
-    public void insert(Comment comment) {
+    public void insert(Comment comment, User commentator) {
         if (comment.getParentId() == null || comment.getParentId() == 0) {
             throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
         }
@@ -46,18 +55,28 @@ public class CommentService {
             throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_WRONG);
         }
 
-        if(comment.getType()==CommentTypeEnum.COMMENT.getType()){
+        if (comment.getType() == CommentTypeEnum.COMMENT.getType()) {
             // 回复评论
-            Comment dbComment = commentMapper.selectByPrimaryKey(comment.getParentId());
+            // 获取当前评论的父评论
+            Comment parentComment = commentMapper.selectByPrimaryKey(comment.getParentId());
             // 评论未找到
-            if(dbComment==null){
+            if (parentComment == null) {
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
+            }
+
+            // 查询被评论的问题
+            Question question = questionMapper.selectByPrimaryKey(parentComment.getParentId());
+            if (question == null) {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
 
             commentMapper.insertSelective(comment);
             // 增加回复的回复数
-            commentExtMapper.incCommentCount(1, dbComment.getId());
-        }else {
+            commentExtMapper.incCommentCount(1, parentComment.getId());
+
+            createNotify(comment, parentComment.getCommentator(), commentator.getName(),
+                    question.getTitle(), NotificationTypeEnum.REPLY_COMMENT, question.getId());
+        } else {
             // 回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
             if (question == null) {
@@ -66,6 +85,8 @@ public class CommentService {
             commentMapper.insertSelective(comment);
             // 添加问题的回复数
             questionExtMapper.incCommentCount(1, question.getId());
+            createNotify(comment, question.getCreator(), commentator.getName(), question.getTitle(),
+                    NotificationTypeEnum.REPLY_QUESTION, question.getId());
         }
 
     }
@@ -78,7 +99,7 @@ public class CommentService {
         commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
 
-        if(comments.size()==0){
+        if (comments.size() == 0) {
             return new ArrayList<>();
         }
 
@@ -104,5 +125,31 @@ public class CommentService {
         }).collect(Collectors.toList());
 
         return commentDTOS;
+    }
+
+    /**
+     * 创建通知
+     * @param comment 发起的评论
+     * @param receiver 通知接收者id
+     * @param notifierName 通知者名字
+     * @param outerTitle 评论所在的问题（Question）标题
+     * @param notificationType 通知类型
+     * @param outerId 评论所在的问题（Question）id
+     */
+    private void createNotify(Comment comment, Long receiver, String notifierName, String outerTitle, NotificationTypeEnum notificationType, Long outerId) {
+        // 自己回复自己不通知
+        if (receiver == comment.getCommentator()) {
+            return;
+        }
+        Notification notification = new Notification();
+        notification.setGmtCreate(System.currentTimeMillis());
+        notification.setType(notificationType.getType());
+        notification.setOuterid(outerId);
+        notification.setNotifier(comment.getCommentator());
+        notification.setStatus(NotificationStatusEnum.UNREAD.getStatus());
+        notification.setReceiver(receiver);
+        notification.setNotifierName(notifierName);
+        notification.setOuterTitle(outerTitle);
+        notificationMapper.insert(notification);
     }
 }
