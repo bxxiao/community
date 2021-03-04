@@ -54,11 +54,19 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.75</version>
         </dependency>
+        <!-- 数据库 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.200</version>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+
         <!-- 集成mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -69,11 +77,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--    <groupId>com.github.pagehelper</groupId>-->
-        <!--    <artifactId>pagehelper</artifactId>-->
-        <!--    <version>5.1.10</version>-->
-        <!--</dependency>-->
+
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -107,15 +111,23 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>7.5.2</version>
                 <configuration>
-                    <url>jdbc:h2:~/community1</url>
-                    <user>sa</user>
-                    <password>123</password>
+                    <!--<url>jdbc:h2:~/community1</url>-->
+                    <!--<user>sa</user>-->
+                    <!--<password>123</password>-->
+                    <url>jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC</url>
+                    <user>root</user>
+                    <password>admin</password>
                 </configuration>
                 <dependencies>
+                    <!--<dependency>-->
+                    <!--    <groupId>com.h2database</groupId>-->
+                    <!--    <artifactId>h2</artifactId>-->
+                    <!--    <version>1.4.200</version>-->
+                    <!--</dependency>-->
                     <dependency>
-                        <groupId>com.h2database</groupId>
-                        <artifactId>h2</artifactId>
-                        <version>1.4.200</version>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.22</version>
                     </dependency>
                 </dependencies>
             </plugin>
