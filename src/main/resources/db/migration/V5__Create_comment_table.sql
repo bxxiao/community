@@ -11,7 +11,4 @@ create table comment
 		primary key (id)
 );
 
-comment on column comment.type is '评论类型，指一级、二级评论';
-
-comment on column comment.like_count is '点赞数';
 
