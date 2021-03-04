@@ -2,6 +2,7 @@ package com.bx.community.service;
 
 import com.bx.community.dto.PaginationDTO;
 import com.bx.community.dto.QuestionDTO;
+import com.bx.community.dto.QuestionQueryDTO;
 import com.bx.community.exception.CustomizeErrorCode;
 import com.bx.community.exception.CustomizeException;
 import com.bx.community.mapper.QuestionExtMapper;
@@ -33,12 +34,42 @@ public class QuestionService {
     @Autowired
     private QuestionExtMapper qExtMapper;
 
-
-    public PaginationDTO listQuestion(Integer size, Integer page) {
+    /**
+     *
+     * @param search
+     * @param size
+     * @param page
+     * @return
+     */
+    public PaginationDTO listQuestion(String search, Integer size, Integer page) {
         Integer offset = size*(page-1);
-        List<Question> questions = qMapper.list(offset, size);
-        List<QuestionDTO> questionDTOS = new ArrayList<>();
+
+        // 将搜索关键字按空格分开，用|相连，sql中用正则查询
+        if (StringUtils.isNotBlank(search)) {
+            String[] tags = StringUtils.split(search, " ");
+            search = Arrays
+                    .stream(tags)
+                        // .filter(StringUtils::isNotBlank)
+                        // .map(t -> t.replace("+", "").replace("*", "").replace("?", ""))
+                        // .filter(StringUtils::isNotBlank)
+                    .collect(Collectors.joining("|"));
+        }
+
         PaginationDTO paginationDTO = new PaginationDTO();
+
+        // 查询并设置分页信息
+        QuestionQueryDTO queryDTO = new QuestionQueryDTO();
+        queryDTO.setSearch(search);
+        Integer totalCount = qExtMapper.countBySearch(queryDTO);
+        paginationDTO.setPagination(totalCount, page, size);
+
+        // 分页查询数据
+        queryDTO.setPage(offset);
+        queryDTO.setSize(size);
+        List<Question> questions = qExtMapper.selectBySearch(queryDTO);
+
+        // 创建dto
+        List<QuestionDTO> questionDTOS = new ArrayList<>();
         UserExample example = new UserExample();
         for (Question question : questions) {
             example.or().andIdEqualTo(question.getCreator());
@@ -50,15 +81,13 @@ public class QuestionService {
         }
 
         paginationDTO.setData(questionDTOS);
-        Integer totalCount = qMapper.count();
-        paginationDTO.setPagination(totalCount, page, size);
 
         return paginationDTO;
     }
 
-    public PaginationDTO list(Long userId, Integer page, Integer size) {
+    public PaginationDTO listByUid(Long userId, Integer page, Integer size) {
         Integer offset = size*(page-1);
-        List<Question> questions = qMapper.listByUId(userId, offset, size);
+        List<Question> questions = qExtMapper.listByUId(userId, offset, size);
         List<QuestionDTO> questionDTOS = new ArrayList<>();
         PaginationDTO paginationDTO = new PaginationDTO();
 
@@ -77,7 +106,6 @@ public class QuestionService {
         paginationDTO.setPagination(Math.toIntExact(totalCount), page, size);
 
         return paginationDTO;
-
     }
 
     public QuestionDTO getById(Long id) {

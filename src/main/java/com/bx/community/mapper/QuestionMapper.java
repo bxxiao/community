@@ -37,9 +37,5 @@ public interface QuestionMapper {
 
     int updateByPrimaryKey(Question record);
 
-    List<Question> list(@Param("offset") Integer offset, @Param("size") Integer size);
 
-    List<Question> listByUId(@Param("userId") Long userId, @Param("offset") Integer offset, @Param("size") Integer size);
-
-    Integer count();
 }

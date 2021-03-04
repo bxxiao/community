@@ -358,14 +358,6 @@
   </update>
 
 
-    <select id="count" resultType="java.lang.Integer">
-        select count(1) from question
-    </select>
-    <select id="list" resultMap="ResultMapWithBLOBs">
-        select * from question order by gmt_create desc limit #{offset},#{size};
-    </select>
-    <select id="listByUId" resultMap="ResultMapWithBLOBs">
-        select * from question where creator=#{userId} order by gmt_create desc limit #{offset},#{size};
-    </select>
+
 
 </mapper>

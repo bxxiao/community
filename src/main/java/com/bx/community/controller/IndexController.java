@@ -20,9 +20,6 @@ import java.util.List;
 public class IndexController {
 
     @Autowired
-    private UserMapper mapper;
-
-    @Autowired
     private QuestionService service;
 
     @Autowired
@@ -33,10 +30,12 @@ public class IndexController {
      */
     @RequestMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1") Integer page,
-                        @RequestParam(defaultValue = "5")Integer size){
+                        @RequestParam(defaultValue = "5") Integer size,
+                        @RequestParam(required = false) String search) {
         // 查询出所有question，用于在首页显示
-        PaginationDTO<QuestionDTO> pagination = service.listQuestion(size, page);
+        PaginationDTO<QuestionDTO> pagination = service.listQuestion(search, size, page);
         model.addAttribute("pagination", pagination);
+        model.addAttribute("search", search);
         return "index";
     }
 }

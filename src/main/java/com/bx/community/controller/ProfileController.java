@@ -36,7 +36,7 @@ public class ProfileController {
         Long unReadCount = notificationService.queryUnReadCount(user.getId());
         model.addAttribute("unReadCount", unReadCount);
         if("questions".equals(action)){
-            PaginationDTO paginationDTO = questionService.list(user.getId(), page, size);
+            PaginationDTO paginationDTO = questionService.listByUid(user.getId(), page, size);
             // section 表示当前是哪个模块，有“我的问题”，“最新回复”
             model.addAttribute("section", "questions");
             model.addAttribute("sectionName", "我的提问");
