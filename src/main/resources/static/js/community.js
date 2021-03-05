@@ -155,5 +155,6 @@ function selectTag(e) {
 }
 
 function showSelectTag() {
+    $("#error_tips").hide();
     $("#select-tag").show();
 }

@@ -39,6 +39,7 @@ public class PublishController {
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
+        model.addAttribute("tags", TagCache.get());
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
