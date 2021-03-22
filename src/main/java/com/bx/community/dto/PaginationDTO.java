@@ -25,18 +25,23 @@ public class PaginationDTO<T> {
     }
 
     public void setPagination(Integer totalCount, Integer page, Integer size) {
-
-
+        // 总页数
         Integer totalPage;
 
-        if(totalCount%size==0){
+        if(size > 10){
+            size = 5;
+        }
+
+        if (totalCount % size == 0) {
             totalPage = totalCount / size;
-        }else{
+        } else {
+            // 不能整除，页数需要 +1
             totalPage = totalCount / size + 1;
         }
 
-        if(page<1) page = 1;
-        if(page>totalPage) page = totalPage;
+        // 边界值处理
+        if (page < 1) page = 1;
+        if (page > totalPage) page = totalPage;
         this.page = page;
         this.totalPage = totalPage;
 

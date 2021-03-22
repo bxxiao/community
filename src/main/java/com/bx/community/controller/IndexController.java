@@ -1,5 +1,6 @@
 package com.bx.community.controller;
 
+import com.bx.community.cache.HotTagCache;
 import com.bx.community.dto.PaginationDTO;
 import com.bx.community.dto.QuestionDTO;
 import com.bx.community.mapper.UserMapper;
@@ -25,17 +26,24 @@ public class IndexController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private HotTagCache hotTagCache;
+
     /**
      * 跳转到index时，先判断是否已登录（根据cookie中的token），若已登录，将对应的User对象放到session
      */
     @RequestMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1") Integer page,
                         @RequestParam(defaultValue = "5") Integer size,
-                        @RequestParam(required = false) String search) {
+                        @RequestParam(required = false) String search,
+                        @RequestParam(required = false) String tag) {
         // 查询出所有question，用于在首页显示
-        PaginationDTO<QuestionDTO> pagination = service.listQuestion(search, size, page);
+        PaginationDTO<QuestionDTO> pagination = service.listQuestion(search, size, page, tag);
+        List<String> hotTags = hotTagCache.getHots();
         model.addAttribute("pagination", pagination);
         model.addAttribute("search", search);
+        model.addAttribute("hotTags", hotTags);
+        model.addAttribute("tag", tag);
         return "index";
     }
 }

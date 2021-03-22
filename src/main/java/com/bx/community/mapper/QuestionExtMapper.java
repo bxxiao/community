@@ -21,7 +21,9 @@ public interface QuestionExtMapper {
 
     Integer count();
 
-    Integer countBySearch(QuestionQueryDTO queryDTO);
+    Integer countByQueryDTO(QuestionQueryDTO queryDTO);
 
     List<Question> selectBySearch(QuestionQueryDTO queryDTO);
+
+    int isCreator(@Param("qid") Long qid, @Param("uid") Long uid);
 }

@@ -29,14 +29,14 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie[] cookies = request.getCookies();
-        if(cookies!=null && cookies.length>0){
+        if (cookies != null && cookies.length > 0) {
             for (Cookie cookie : cookies) {
                 if ("token".equals(cookie.getName())) {
                     String token = cookie.getValue();
                     UserExample example = new UserExample();
                     example.or().andTokenEqualTo(token);
                     List<User> users = mapper.selectByExample(example);
-                    if (users != null && users.size()>0) {
+                    if (users != null && users.size() > 0) {
                         request.getSession().setAttribute("user", users.get(0));
                         // 放置未读通知数量
                         Long unReadCount = notificationService.queryUnReadCount(users.get(0).getId());

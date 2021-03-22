@@ -35,23 +35,20 @@ public class QuestionService {
     private QuestionExtMapper qExtMapper;
 
     /**
-     *
      * @param search
      * @param size
      * @param page
      * @return
      */
-    public PaginationDTO listQuestion(String search, Integer size, Integer page) {
-        Integer offset = size*(page-1);
+    public PaginationDTO listQuestion(String search, Integer size, Integer page, String tag) {
+        Integer offset = size * (page - 1);
 
         // 将搜索关键字按空格分开，用|相连，sql中用正则查询
         if (StringUtils.isNotBlank(search)) {
             String[] tags = StringUtils.split(search, " ");
             search = Arrays
                     .stream(tags)
-                        // .filter(StringUtils::isNotBlank)
-                        // .map(t -> t.replace("+", "").replace("*", "").replace("?", ""))
-                        // .filter(StringUtils::isNotBlank)
+                    // 用|相连
                     .collect(Collectors.joining("|"));
         }
 
@@ -59,8 +56,13 @@ public class QuestionService {
 
         // 查询并设置分页信息
         QuestionQueryDTO queryDTO = new QuestionQueryDTO();
-        queryDTO.setSearch(search);
-        Integer totalCount = qExtMapper.countBySearch(queryDTO);
+        // 若 search 为空，置 null ，让 mybatis 可以正确拼装 sql 语句
+        queryDTO.setSearch(search == null || search.trim().equals("") ? null : search);
+        if(StringUtils.isNotBlank(tag)){
+            queryDTO.setTag("%" + tag + "%");
+        }
+        Integer totalCount = qExtMapper.countByQueryDTO(queryDTO);
+        // 设置分页信息
         paginationDTO.setPagination(totalCount, page, size);
 
         // 分页查询数据
@@ -86,7 +88,7 @@ public class QuestionService {
     }
 
     public PaginationDTO listByUid(Long userId, Integer page, Integer size) {
-        Integer offset = size*(page-1);
+        Integer offset = size * (page - 1);
         List<Question> questions = qExtMapper.listByUId(userId, offset, size);
         List<QuestionDTO> questionDTOS = new ArrayList<>();
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -111,7 +113,7 @@ public class QuestionService {
     public QuestionDTO getById(Long id) {
         Question question = qMapper.selectByPrimaryKey(id);
         // 请求的问题可能不存在，抛出异常，跳转至错误页面
-        if(question==null){
+        if (question == null) {
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
         }
         QuestionDTO dto = new QuestionDTO();
@@ -122,15 +124,15 @@ public class QuestionService {
     }
 
     public void insertOrUpdate(Question question) {
-        if(question.getId()==null || question.getId() == 0){
+        if (question.getId() == null || question.getId() == 0) {
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
             qMapper.insertSelective(question);
-        }else {
+        } else {
             question.setGmtModified(question.getGmtCreate());
             int ret = qMapper.updateByPrimaryKeySelective(question);
             //更新失败
-            if(ret!=1){
+            if (ret != 1) {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
@@ -143,20 +145,18 @@ public class QuestionService {
     /**
      *
      */
-    public void increView(Long id) {
-        // 该方式存在并发问题（丢失修改）
-        // Question question = qMapper.selectByPrimaryKey(id);
-        // Question update = new Question();
-        // update.setId(id);
-        // update.setViewCount(question.getViewCount()+1);
-        // qMapper.updateByPrimaryKeySelective(update);
+    public void increView(Long qid, Long uid) {
+        // 访问者是问题发起者，则不增加访问记录（未登录访问也增加（uid 为 null 即表示未登录））
+        if(uid != null && qExtMapper.isCreator(qid, uid) > 0){
+            return;
+        }
 
         // 在sql中使用 view_count = view_count + 1的方式
-        qExtMapper.incView(1, id);
+        qExtMapper.incView(1, qid);
     }
 
     public List<QuestionDTO> queryRelated(QuestionDTO questionDTO) {
-        if(StringUtils.isBlank(questionDTO.getTag())){
+        if (StringUtils.isBlank(questionDTO.getTag())) {
             return new ArrayList<>();
         }
 

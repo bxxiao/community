@@ -59,11 +59,14 @@
         select * from question where creator=#{userId} order by gmt_create desc limit #{offset},#{size};
     </select>
 
-    <select id="countBySearch" resultType="java.lang.Integer" parameterType="com.bx.community.dto.QuestionQueryDTO">
+    <select id="countByQueryDTO" resultType="java.lang.Integer" parameterType="com.bx.community.dto.QuestionQueryDTO">
         select count(*) from question
         <where>
             <if test="search!=null">
                 and title regexp #{search}
+            </if>
+            <if test="tag!=null">
+                and tag like #{tag}
             </if>
         </where>
     </select>
@@ -75,7 +78,14 @@
             <if test="search!=null">
                 and title regexp #{search}
             </if>
+            <if test="tag!=null">
+                and tag like #{tag}
+            </if>
         </where>
         order by gmt_create desc limit #{page}, #{size};
+    </select>
+
+    <select id="isCreator" resultType="java.lang.Integer">
+        select count(*) from question where id = #{qid} and creator = #{uid};
     </select>
 </mapper>

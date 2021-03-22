@@ -2,7 +2,6 @@ package com.bx.community.controller;
 
 import com.bx.community.dto.AccessTokenDTO;
 import com.bx.community.dto.GithubUser;
-import com.bx.community.mapper.UserMapper;
 import com.bx.community.model.User;
 import com.bx.community.provider.GithubProvider;
 import com.bx.community.service.UserService;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
 @Controller
@@ -39,7 +39,7 @@ public class AuthorizeController {
     private UserService userService;
 
     @RequestMapping("/callback")
-    public String callback(@RequestParam String code, @RequestParam String state, HttpServletResponse response){
+    public String callback(@RequestParam String code, @RequestParam String state, HttpServletResponse response, HttpSession session){
         AccessTokenDTO dto = new AccessTokenDTO();
         dto.setClient_id(clientId);
         dto.setClient_secret(clientSecret);
@@ -54,6 +54,8 @@ public class AuthorizeController {
         if(githubUser!=null && githubUser.getId() != null){
             User user = new User();
             String loginToken = UUID.randomUUID().toString();
+            // 放置 / 更新 token
+            session.setAttribute("token", loginToken);
             user.setToken(loginToken);
             user.setName(githubUser.getLogin());
             user.setAccountId(String.valueOf(githubUser.getId()));

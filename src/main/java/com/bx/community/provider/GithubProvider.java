@@ -3,6 +3,8 @@ package com.bx.community.provider;
 import com.alibaba.fastjson.JSON;
 import com.bx.community.dto.AccessTokenDTO;
 import com.bx.community.dto.GithubUser;
+import com.bx.community.exception.CustomizeErrorCode;
+import com.bx.community.exception.CustomizeException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
@@ -28,10 +30,9 @@ public class GithubProvider {
             //提取其中的access_token的属性值
             String token = string.split("&")[0].split("=")[1];
             return token;
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new CustomizeException(CustomizeErrorCode.LOGIN_ERROR);
         }
-        return null;
     }
 
     public GithubUser getUser(String accessToken){
