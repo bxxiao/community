@@ -39,15 +39,17 @@
                         <a th:href="@{'/question/' + ${question.id}}" th:text="${question.title}"></a>
                     </h4>
                     <span th:text="${question.description}"></span><br>
-                    <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 • <span th:text="${question.viewCount}"></span> 次浏览 • <span th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span></span>
+                    <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 • <span
+                            th:text="${question.viewCount}"></span> 次浏览 • <span
+                            th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span></span>
                 </div>
             </div>
 
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li th:if="${pagination.showFirstPage}">
-                        <a  th:href="@{/(page=1,search=${search},tag=${tag})}"
-                                aria-label="Previous">
+                        <a th:href="@{/(page=1,search=${search},tag=${tag})}"
+                           aria-label="Previous">
                             <span aria-hidden="true">&lt;&lt;</span>
                         </a>
                     </li>
@@ -80,13 +82,17 @@
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 side">
                 <h4>广告~</h4>
-                <img class="img-thumbnail question-wechat" src="https://gitee.com/bxgitee/noteImage/raw/master/image/blogImagei.jpg">
+                <img class="img-thumbnail question-wechat"
+                     src="https://gitee.com/bxgitee/noteImage/raw/master/image/blogImagei.jpg">
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>热门话题</h3>
-                <span th:each="tag : ${hotTags}">
-                    <a th:href="@{/(page=1,tag=${tag})}"
-                       th:text="${tag}" class="community-tag"></a><br/>
+                <span class="label label-info" th:each="tag : ${hotTags}">
+                    <!--<span >-->
+                    <span class="community-tag glyphicon glyphicon-tags">
+                        <a th:href="@{/(page=1,tag=${tag})}" th:text="${tag}" class="community-tag"></a>
+                    </span><br>
+                    <!--</span>-->
                 </span>
             </div>
         </div>

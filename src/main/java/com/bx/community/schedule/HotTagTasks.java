@@ -14,9 +14,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-/**
- * Created by codedrinker on 2019/8/1.
- */
 @Component
 @Slf4j
 public class HotTagTasks {
@@ -27,8 +24,9 @@ public class HotTagTasks {
     @Autowired
     private HotTagCache hotTagCache;
 
-    // @Scheduled(fixedRate = 1000 * 60 * 60 * 3)
-    @Scheduled(fixedRate = 10000)
+    // 3 个小时更新一次
+    @Scheduled(fixedRate = 1000 * 60 * 60 * 3)
+    // @Scheduled(fixedRate = 10000)
     public void hotTagSchedule() {
         log.info("hotTagSchedule start {}", new Date());
         List<Question> list;

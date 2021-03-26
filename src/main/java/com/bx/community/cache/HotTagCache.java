@@ -9,14 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-/**
- * Created by codedrinker on 2019/8/2.
- */
-
 @Component
 @Data
 public class HotTagCache {
-    private List<String> hots = new ArrayList<>();
+    private List<String> hots;
 
     public void updateTags(Map<String, Integer> tags) {
         int max = 10;

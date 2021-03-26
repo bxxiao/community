@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -24,10 +25,10 @@ public class IndexController {
     private QuestionService service;
 
     @Autowired
-    private NotificationService notificationService;
+    private HotTagCache hotTagCache;
 
     @Autowired
-    private HotTagCache hotTagCache;
+    private NotificationService notificationService;
 
     /**
      * 跳转到index时，先判断是否已登录（根据cookie中的token），若已登录，将对应的User对象放到session
@@ -36,7 +37,8 @@ public class IndexController {
     public String index(Model model, @RequestParam(defaultValue = "1") Integer page,
                         @RequestParam(defaultValue = "5") Integer size,
                         @RequestParam(required = false) String search,
-                        @RequestParam(required = false) String tag) {
+                        @RequestParam(required = false) String tag,
+                        HttpSession session) {
         // 查询出所有question，用于在首页显示
         PaginationDTO<QuestionDTO> pagination = service.listQuestion(search, size, page, tag);
         List<String> hotTags = hotTagCache.getHots();
@@ -44,6 +46,14 @@ public class IndexController {
         model.addAttribute("search", search);
         model.addAttribute("hotTags", hotTags);
         model.addAttribute("tag", tag);
+
+        // // 若已登录，查询未读通知数
+        // User user = (User) session.getAttribute("user");
+        // if(user != null){
+        //     Long unReadCount = notificationService.queryUnReadCount(user.getId());
+        //     model.addAttribute("unReadCount", unReadCount);
+        // }
+
         return "index";
     }
 }

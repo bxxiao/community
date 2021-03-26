@@ -18,9 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 public class ProfileController {
 
     @Autowired
-    private UserMapper mapper;
-
-    @Autowired
     private QuestionService questionService;
 
     @Autowired

@@ -24,7 +24,6 @@ public class QuestionController {
     @Autowired
     private CommentService commentService;
 
-
     /**
      * 跳转问题页面
      */
