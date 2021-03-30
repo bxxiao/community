@@ -19,9 +19,11 @@ public class Question {
 
     private String tag;
 
+    private Byte top;
+
     private String description;
 
-    public Question(Long id, String title, Long gmtCreate, Long gmtModified, Long creator, Integer commentCount, Integer viewCount, Integer likeCount, String tag) {
+    public Question(Long id, String title, Long gmtCreate, Long gmtModified, Long creator, Integer commentCount, Integer viewCount, Integer likeCount, String tag, Byte top) {
         this.id = id;
         this.title = title;
         this.gmtCreate = gmtCreate;
@@ -31,9 +33,10 @@ public class Question {
         this.viewCount = viewCount;
         this.likeCount = likeCount;
         this.tag = tag;
+        this.top = top;
     }
 
-    public Question(Long id, String title, Long gmtCreate, Long gmtModified, Long creator, Integer commentCount, Integer viewCount, Integer likeCount, String tag, String description) {
+    public Question(Long id, String title, Long gmtCreate, Long gmtModified, Long creator, Integer commentCount, Integer viewCount, Integer likeCount, String tag, Byte top, String description) {
         this.id = id;
         this.title = title;
         this.gmtCreate = gmtCreate;
@@ -43,6 +46,7 @@ public class Question {
         this.viewCount = viewCount;
         this.likeCount = likeCount;
         this.tag = tag;
+        this.top = top;
         this.description = description;
     }
 
@@ -120,6 +124,14 @@ public class Question {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public Byte getTop() {
+        return top;
+    }
+
+    public void setTop(Byte top) {
+        this.top = top;
     }
 
     public String getDescription() {

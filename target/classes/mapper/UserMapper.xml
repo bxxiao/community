@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bx.community.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.bx.community.model.User">
+        <constructor>
+            <idArg column="ID" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="NAME" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="ACCOUNT_ID" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="TOKEN" javaType="java.lang.String" jdbcType="CHAR"/>
+            <arg column="GMT_CREATE" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="GMT_MODIFIED" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="BIO" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="AVATAR_URL" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </constructor>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    ID, NAME, ACCOUNT_ID, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL
+  </sql>
+    <select id="selectByExample" parameterType="com.bx.community.model.UserExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from USER
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from USER
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from USER
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByExample" parameterType="com.bx.community.model.UserExample">
+        delete from USER
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.bx.community.model.User">
+    insert into USER (ID, NAME, ACCOUNT_ID, 
+      TOKEN, GMT_CREATE, GMT_MODIFIED, 
+      BIO, AVATAR_URL)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, 
+      #{token,jdbcType=CHAR}, #{gmtCreate,jdbcType=BIGINT}, #{gmtModified,jdbcType=BIGINT}, 
+      #{bio,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.bx.community.model.User">
+        insert into USER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="accountId != null">
+                ACCOUNT_ID,
+            </if>
+            <if test="token != null">
+                TOKEN,
+            </if>
+            <if test="gmtCreate != null">
+                GMT_CREATE,
+            </if>
+            <if test="gmtModified != null">
+                GMT_MODIFIED,
+            </if>
+            <if test="bio != null">
+                BIO,
+            </if>
+            <if test="avatarUrl != null">
+                AVATAR_URL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="accountId != null">
+                #{accountId,jdbcType=VARCHAR},
+            </if>
+            <if test="token != null">
+                #{token,jdbcType=CHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=BIGINT},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=BIGINT},
+            </if>
+            <if test="bio != null">
+                #{bio,jdbcType=VARCHAR},
+            </if>
+            <if test="avatarUrl != null">
+                #{avatarUrl,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.bx.community.model.UserExample" resultType="java.lang.Long">
+        select count(*) from USER
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update USER
+        <set>
+            <if test="record.id != null">
+                ID = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.name != null">
+                NAME = #{record.name,jdbcType=VARCHAR},
+            </if>
+            <if test="record.accountId != null">
+                ACCOUNT_ID = #{record.accountId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.token != null">
+                TOKEN = #{record.token,jdbcType=CHAR},
+            </if>
+            <if test="record.gmtCreate != null">
+                GMT_CREATE = #{record.gmtCreate,jdbcType=BIGINT},
+            </if>
+            <if test="record.gmtModified != null">
+                GMT_MODIFIED = #{record.gmtModified,jdbcType=BIGINT},
+            </if>
+            <if test="record.bio != null">
+                BIO = #{record.bio,jdbcType=VARCHAR},
+            </if>
+            <if test="record.avatarUrl != null">
+                AVATAR_URL = #{record.avatarUrl,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update USER
+        set ID = #{record.id,jdbcType=BIGINT},
+        NAME = #{record.name,jdbcType=VARCHAR},
+        ACCOUNT_ID = #{record.accountId,jdbcType=VARCHAR},
+        TOKEN = #{record.token,jdbcType=CHAR},
+        GMT_CREATE = #{record.gmtCreate,jdbcType=BIGINT},
+        GMT_MODIFIED = #{record.gmtModified,jdbcType=BIGINT},
+        BIO = #{record.bio,jdbcType=VARCHAR},
+        AVATAR_URL = #{record.avatarUrl,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.bx.community.model.User">
+        update USER
+        <set>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="accountId != null">
+                ACCOUNT_ID = #{accountId,jdbcType=VARCHAR},
+            </if>
+            <if test="token != null">
+                TOKEN = #{token,jdbcType=CHAR},
+            </if>
+            <if test="gmtCreate != null">
+                GMT_CREATE = #{gmtCreate,jdbcType=BIGINT},
+            </if>
+            <if test="gmtModified != null">
+                GMT_MODIFIED = #{gmtModified,jdbcType=BIGINT},
+            </if>
+            <if test="bio != null">
+                BIO = #{bio,jdbcType=VARCHAR},
+            </if>
+            <if test="avatarUrl != null">
+                AVATAR_URL = #{avatarUrl,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.bx.community.model.User">
+    update USER
+    set NAME = #{name,jdbcType=VARCHAR},
+      ACCOUNT_ID = #{accountId,jdbcType=VARCHAR},
+      TOKEN = #{token,jdbcType=CHAR},
+      GMT_CREATE = #{gmtCreate,jdbcType=BIGINT},
+      GMT_MODIFIED = #{gmtModified,jdbcType=BIGINT},
+      BIO = #{bio,jdbcType=VARCHAR},
+      AVATAR_URL = #{avatarUrl,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

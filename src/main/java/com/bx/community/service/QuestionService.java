@@ -71,21 +71,14 @@ public class QuestionService {
         List<Question> questions = qExtMapper.selectBySearch(queryDTO);
 
         // 创建dto
-        List<QuestionDTO> questionDTOS = new ArrayList<>();
-        UserExample example = new UserExample();
-        for (Question question : questions) {
-            example.or().andIdEqualTo(question.getCreator());
-            User user = uMapper.selectByExample(example).get(0);
-            QuestionDTO dto = new QuestionDTO();
-            BeanUtils.copyProperties(question, dto);
-            dto.setUser(user);
-            questionDTOS.add(dto);
-        }
+        List<QuestionDTO> questionDTOS = getQuestionDTOS(questions);
 
         paginationDTO.setData(questionDTOS);
 
         return paginationDTO;
     }
+
+
 
     public PaginationDTO listByUid(Long userId, Integer page, Integer size) {
         Integer offset = size * (page - 1);
@@ -175,5 +168,30 @@ public class QuestionService {
         }).collect(Collectors.toList());
 
         return result;
+    }
+
+    public List<QuestionDTO> listTopQuestion() {
+        QuestionExample example = new QuestionExample();
+        // 最新置顶的放在最前面（后面后台管理设置置顶时更新modified）
+        example.setOrderByClause("GMT_MODIFIED desc");
+        example.or().andTopEqualTo((byte) 1);
+        List<Question> questions = qMapper.selectByExample(example);
+        List<QuestionDTO> questionDTOS = getQuestionDTOS(questions);
+        return questionDTOS;
+    }
+
+    // 根据 Question 获取 QuestionDTO ，包含 user
+    private List<QuestionDTO> getQuestionDTOS(List<Question> questions){
+        List<QuestionDTO> questionDTOS = new ArrayList<>();
+        UserExample example = new UserExample();
+        for (Question question : questions) {
+            example.or().andIdEqualTo(question.getCreator());
+            User user = uMapper.selectByExample(example).get(0);
+            QuestionDTO dto = new QuestionDTO();
+            BeanUtils.copyProperties(question, dto);
+            dto.setUser(user);
+            questionDTOS.add(dto);
+        }
+        return questionDTOS;
     }
 }
