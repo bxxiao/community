@@ -1,5 +1,7 @@
 package com.bx.community.interceptor;
 
+import com.bx.community.exception.CustomizeErrorCode;
+import com.bx.community.exception.CustomizeException;
 import com.bx.community.mapper.UserMapper;
 import com.bx.community.model.User;
 import com.bx.community.model.UserExample;
@@ -24,44 +26,39 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Autowired
     private NotificationService notificationService;
 
-    /**
-     * 检查cookie中是否有token，有则尝试查询对应的user，放入session
-     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
-        Cookie[] cookies = request.getCookies();
         HttpSession session = request.getSession();
-        if (cookies != null && cookies.length > 0) {
-            for (Cookie cookie : cookies) {
-                if ("token".equals(cookie.getName())) {
-                    String token = cookie.getValue();
-                    User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
 
-                    // 若 session 中已有 user，且其 token 与 cookie 中的一样，说明是同一个用户，
-                    // 没有必要继续查数据库
-                    if(user != null)
-                        if (user.getToken().equals(token)) {
-                            Long unReadCount = notificationService.queryUnReadCount(user.getId());
-                            request.getSession().setAttribute("unReadCount", unReadCount);
-                            break;
+        // 如果 user 为 null ，从 cookie 获取 token ，尝试查询对应的 user
+        if(user == null) {
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null && cookies.length > 0) {
+                for (Cookie cookie : cookies) {
+                    if ("token".equals(cookie.getName())) {
+                        String token = cookie.getValue();
+                        UserExample example = new UserExample();
+                        example.or().andTokenEqualTo(token);
+                        List<User> users = mapper.selectByExample(example);
+                        if (users != null && users.size() > 0) {
+                            request.getSession().setAttribute("user", users.get(0));
                         }
-
-
-                    UserExample example = new UserExample();
-                    example.or().andTokenEqualTo(token);
-                    List<User> users = mapper.selectByExample(example);
-                    if (users != null && users.size() > 0) {
-                        request.getSession().setAttribute("user", users.get(0));
-                        // 放置未读通知数量
-                        Long unReadCount = notificationService.queryUnReadCount(users.get(0).getId());
-                        request.getSession().setAttribute("unReadCount", unReadCount);
+                        break;
                     }
-                    break;
                 }
             }
         }
 
-        return true;
+        // 放置未读通知数量
+        if (user != null) {
+            Long unReadCount = notificationService.queryUnReadCount(user.getId());
+            session.setAttribute("unReadCount", unReadCount);
+            return true;
+        }
+
+        // 若user仍然为空，表示token不正确，抛出异常
+        throw new CustomizeException(CustomizeErrorCode.NO_LOGIN);
     }
 
     @Override

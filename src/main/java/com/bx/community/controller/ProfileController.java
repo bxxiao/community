@@ -27,9 +27,6 @@ public class ProfileController {
     public String profile(@PathVariable String action, Model model, HttpServletRequest request,
                           @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5")Integer size){
         User user = (User) request.getSession().getAttribute("user");
-        if(user==null)
-            return "redirect:/";
-
         Long unReadCount = notificationService.queryUnReadCount(user.getId());
         model.addAttribute("unReadCount", unReadCount);
         if("questions".equals(action)){

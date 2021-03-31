@@ -42,10 +42,6 @@ public class PublishController {
         model.addAttribute("tags", TagCache.get());
 
         User user = (User) request.getSession().getAttribute("user");
-        if (user == null) {
-            model.addAttribute("error", "用户未登录");
-            return "publish";
-        }
 
         if (title == null || "".equals(title)) {
             model.addAttribute("error", "标题不能为空");

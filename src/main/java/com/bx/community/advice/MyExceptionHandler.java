@@ -21,6 +21,7 @@ public class MyExceptionHandler {
     public ModelAndView handle(Throwable e, Model model, HttpServletRequest request, HttpServletResponse response){
         String contentType = request.getContentType();
 
+        // 处理Ajax请求
         if("application/json".equals(contentType)){
             // 使用response对象返回json数据
             ResultDTO resultDTO;
@@ -43,6 +44,7 @@ public class MyExceptionHandler {
 
             return null;
         }
+        // 非Ajax请求
         else{
             // 页面跳转
             if(e instanceof CustomizeException){

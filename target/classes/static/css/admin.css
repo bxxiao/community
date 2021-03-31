@@ -1,0 +1,45 @@
+
+
+.left-list-title, .left-list-greet{
+    padding-left: 15px;
+    color: white;
+}
+
+.left-list-greet{
+    padding-top: 10px;
+}
+
+
+.admin-list{
+    background-color: #222d32;
+}
+
+.list-group{
+    padding-top: 18px;
+    background: #222d32;
+}
+
+a.list-group-item{
+    background: #222d32;
+    color: #b8c7ce;
+    border: none
+}
+
+a.list-group-item:hover{
+    background: #1e282c;
+    color: #FFFFFF;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+    background: #1e282c;
+    color: #FFFFFF;
+    border-left: solid #00c4ff;
+}
+
+.table{
+    border-top: solid #00c4ff;
+}
+
+html, body, .main, .container-fluid, .row, .admin-panel, .admin-list{
+    height: 100%;
+}
