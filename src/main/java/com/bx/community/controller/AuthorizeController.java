@@ -54,8 +54,6 @@ public class AuthorizeController {
         if(githubUser!=null && githubUser.getId() != null){
             User user = new User();
             String loginToken = UUID.randomUUID().toString();
-            // 放置 / 更新 token
-            // session.setAttribute("token", loginToken);
             user.setToken(loginToken);
             user.setName(githubUser.getLogin());
             user.setAccountId(String.valueOf(githubUser.getId()));
@@ -65,6 +63,7 @@ public class AuthorizeController {
             // 若已存在对应user，更新部分信息即可；否则插入
             userService.createOrUpdate(user);
             response.addCookie(new Cookie("token", loginToken));
+            session.setAttribute("user", user);
             return "redirect:/";
         }
         else {

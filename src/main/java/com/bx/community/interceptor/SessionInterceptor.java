@@ -42,19 +42,16 @@ public class SessionInterceptor implements HandlerInterceptor {
                         example.or().andTokenEqualTo(token);
                         List<User> users = mapper.selectByExample(example);
                         if (users != null && users.size() > 0) {
-                            request.getSession().setAttribute("user", users.get(0));
+                            user = users.get(0);
+                            session.setAttribute("user", user);
+                            // 放置未读通知数量
+                            Long unReadCount = notificationService.queryUnReadCount(user.getId());
+                            session.setAttribute("unReadCount", unReadCount);
+                            return true;
                         }
-                        break;
                     }
                 }
             }
-        }
-
-        // 放置未读通知数量
-        if (user != null) {
-            Long unReadCount = notificationService.queryUnReadCount(user.getId());
-            session.setAttribute("unReadCount", unReadCount);
-            return true;
         }
 
         // 若user仍然为空，表示token不正确，抛出异常
