@@ -1,240 +1,168 @@
-2021-03-31 13:03:50.163  INFO 3548 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 3548 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 13:03:50.180  INFO 3548 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 13:03:50.453  WARN 3548 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 13:03:50.466  INFO 3548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 13:03:50.466  INFO 3548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 13:03:52.307  INFO 3548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 13:03:52.315  INFO 3548 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 13:03:52.316  INFO 3548 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 13:03:52.478  INFO 3548 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 13:03:52.479  INFO 3548 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2012 ms
-2021-03-31 13:03:52.607  INFO 3548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 13:03:53.177  INFO 3548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 13:03:53.181  INFO 3548 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 13:03:53.862  INFO 3548 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 13:03:54.012  INFO 3548 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 13:03:54.186  INFO 3548 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 13:03:54.347  INFO 3548 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 13:03:54.392  INFO 3548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 13:03:54.400  INFO 3548 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 13:03:54 CST 2021
-2021-03-31 13:03:54.404  INFO 3548 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 4.968 seconds (JVM running for 6.471)
-2021-03-31 13:03:54.520  INFO 3548 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 13:03:54 CST 2021
-2021-03-31 13:04:02.796  INFO 3548 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 13:04:02.796  INFO 3548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 13:04:02.798  INFO 3548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-03-31 14:36:16.686  INFO 2324 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 2324 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 14:36:16.688  INFO 2324 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 14:36:16.728  INFO 2324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 14:36:16.728  INFO 2324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 14:36:16.741  WARN 2324 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 14:36:17.581  INFO 2324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 14:36:17.587  INFO 2324 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 14:36:17.587  INFO 2324 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 14:36:17.665  INFO 2324 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 14:36:17.666  INFO 2324 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 937 ms
-2021-03-31 14:36:17.696  INFO 2324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 14:36:18.126  INFO 2324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 14:36:18.130  INFO 2324 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 14:36:18.543  INFO 2324 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 14:36:18.596  INFO 2324 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 14:36:18.700  INFO 2324 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 14:36:18.773  INFO 2324 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 14:36:18.799  INFO 2324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 14:36:18.806  INFO 2324 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 14:36:18 CST 2021
-2021-03-31 14:36:18.809  INFO 2324 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.509 seconds (JVM running for 3.44)
-2021-03-31 14:36:18.873  INFO 2324 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 14:36:18 CST 2021
-2021-03-31 14:36:34.901  INFO 2324 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 14:36:34.901  INFO 2324 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 14:36:34.901  INFO 2324 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2021-03-31 15:13:57.762  INFO 14104 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 14104 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 15:13:57.764  INFO 14104 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 15:13:57.806  INFO 14104 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 15:13:57.806  INFO 14104 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 15:13:57.820  WARN 14104 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 15:13:58.640  INFO 14104 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 15:13:58.646  INFO 14104 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 15:13:58.646  INFO 14104 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 15:13:58.734  INFO 14104 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 15:13:58.735  INFO 14104 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 928 ms
-2021-03-31 15:13:58.766  INFO 14104 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 15:13:59.194  INFO 14104 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 15:13:59.198  INFO 14104 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 15:13:59.602  INFO 14104 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 15:13:59.654  INFO 14104 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 15:13:59.756  INFO 14104 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 15:13:59.831  INFO 14104 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 15:13:59.856  INFO 14104 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 15:13:59.864  INFO 14104 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 15:13:59 CST 2021
-2021-03-31 15:13:59.866  INFO 14104 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.449 seconds (JVM running for 3.31)
-2021-03-31 15:13:59.922  INFO 14104 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 15:13:59 CST 2021
-2021-03-31 15:23:43.142  INFO 11276 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 11276 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 15:23:43.145  INFO 11276 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 15:23:43.197  INFO 11276 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 15:23:43.197  INFO 11276 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 15:23:43.200  WARN 11276 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 15:23:44.060  INFO 11276 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 15:23:44.066  INFO 11276 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 15:23:44.066  INFO 11276 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 15:23:44.145  INFO 11276 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 15:23:44.145  INFO 11276 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 947 ms
-2021-03-31 15:23:44.177  INFO 11276 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 15:23:44.612  INFO 11276 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 15:23:44.616  INFO 11276 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 15:23:45.039  INFO 11276 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 15:23:45.092  INFO 11276 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 15:23:45.193  INFO 11276 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 15:23:45.262  INFO 11276 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 15:23:45.288  INFO 11276 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 15:23:45.296  INFO 11276 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 15:23:45 CST 2021
-2021-03-31 15:23:45.298  INFO 11276 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.48 seconds (JVM running for 3.389)
-2021-03-31 15:23:45.352  INFO 11276 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 15:23:45 CST 2021
-2021-03-31 15:23:53.162  INFO 11276 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 15:23:53.162  INFO 11276 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 15:23:53.163  INFO 11276 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2021-03-31 15:33:44.426  INFO 13952 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 13952 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 15:33:44.428  INFO 13952 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 15:33:44.468  INFO 13952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 15:33:44.468  INFO 13952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 15:33:44.475  WARN 13952 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 15:33:45.458  INFO 13952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 15:33:45.467  INFO 13952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 15:33:45.467  INFO 13952 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 15:33:45.574  INFO 13952 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 15:33:45.575  INFO 13952 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1106 ms
-2021-03-31 15:33:45.621  INFO 13952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 15:33:46.106  INFO 13952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 15:33:46.110  INFO 13952 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 15:33:46.559  INFO 13952 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 15:33:46.717  INFO 13952 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 15:33:46.849  INFO 13952 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 15:33:46.941  INFO 13952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 15:33:46.968  INFO 13952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 15:33:46.976  INFO 13952 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 15:33:46 CST 2021
-2021-03-31 15:33:46.978  INFO 13952 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.913 seconds (JVM running for 4.415)
-2021-03-31 15:33:47.052  INFO 13952 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 15:33:47 CST 2021
-2021-03-31 15:33:52.550  INFO 13952 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 15:33:52.550  INFO 13952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 15:33:52.551  INFO 13952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-03-31 15:34:02.803  WARN 13952 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:34:22.455  WARN 13952 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:34:31.810  WARN 13952 --- [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:34:41.599  WARN 13952 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:35:37.207  WARN 13952 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:36:01.320  WARN 13952 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:47:30.553  INFO 960 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 960 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 15:47:30.557  INFO 960 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 15:47:30.607  INFO 960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 15:47:30.607  INFO 960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 15:47:30.641  WARN 960 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 15:47:31.466  INFO 960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 15:47:31.472  INFO 960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 15:47:31.473  INFO 960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 15:47:31.553  INFO 960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 15:47:31.553  INFO 960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 944 ms
-2021-03-31 15:47:31.583  INFO 960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 15:47:32.014  INFO 960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 15:47:32.018  INFO 960 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 15:47:32.426  INFO 960 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 15:47:32.478  INFO 960 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 15:47:32.582  INFO 960 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 15:47:32.652  INFO 960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 15:47:32.678  INFO 960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 15:47:32.685  INFO 960 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 15:47:32 CST 2021
-2021-03-31 15:47:32.686  INFO 960 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.475 seconds (JVM running for 3.303)
-2021-03-31 15:47:32.857  INFO 960 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 15:47:32 CST 2021
-2021-03-31 15:48:10.984  INFO 960 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 15:48:10.984  INFO 960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 15:48:10.986  INFO 960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-03-31 15:50:23.977  WARN 960 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:50:37.899  WARN 960 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:50:52.962  WARN 960 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:51:47.012  WARN 960 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:53:10.155  WARN 960 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:53:32.677  WARN 960 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:55:30.737  INFO 12600 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 12600 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 15:55:30.740  INFO 12600 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 15:55:30.789  INFO 12600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 15:55:30.790  INFO 12600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 15:55:30.807  WARN 12600 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 15:55:31.689  INFO 12600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 15:55:31.696  INFO 12600 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 15:55:31.696  INFO 12600 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 15:55:31.819  INFO 12600 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 15:55:31.819  INFO 12600 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1028 ms
-2021-03-31 15:55:31.862  INFO 12600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 15:55:32.334  INFO 12600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 15:55:32.338  INFO 12600 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 15:55:32.838  INFO 12600 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 15:55:32.903  INFO 12600 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 15:55:33.015  INFO 12600 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 15:55:33.089  INFO 12600 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 15:55:33.118  INFO 12600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 15:55:33.125  INFO 12600 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 15:55:33 CST 2021
-2021-03-31 15:55:33.127  INFO 12600 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.783 seconds (JVM running for 3.696)
-2021-03-31 15:55:33.180  INFO 12600 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 15:55:33 CST 2021
-2021-03-31 15:55:36.645  INFO 12600 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 15:55:36.645  INFO 12600 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 15:55:36.646  INFO 12600 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-03-31 15:56:01.155  WARN 12600 --- [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:56:16.160  WARN 12600 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:56:19.124  WARN 12600 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:56:26.510 ERROR 12600 --- [http-nio-8080-exec-9] c.b.c.controller.AuthorizeController     : callback github user failed: GithubUser(login=null, id=null, bio=null, avatarUrl=null).
-2021-03-31 15:56:37.206  WARN 12600 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.RuntimeException: Value for receiver cannot be null]
-2021-03-31 15:57:16.573  WARN 12600 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:57:31.039  WARN 12600 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:57:52.153  WARN 12600 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 登录失败：连接超时或授权失败]
-2021-03-31 15:58:18.456  WARN 12600 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:58:55.032  WARN 12600 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 15:59:04.417  INFO 11936 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 11936 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 15:59:04.420  INFO 11936 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 15:59:04.469  INFO 11936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 15:59:04.469  INFO 11936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 15:59:04.489  WARN 11936 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 15:59:05.474  INFO 11936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 15:59:05.481  INFO 11936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 15:59:05.482  INFO 11936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 15:59:05.569  INFO 11936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 15:59:05.570  INFO 11936 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1100 ms
-2021-03-31 15:59:05.607  INFO 11936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 15:59:06.088  INFO 11936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 15:59:06.093  INFO 11936 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 15:59:06.710  INFO 11936 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 15:59:06.784  INFO 11936 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 15:59:06.906  INFO 11936 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 15:59:06.983  INFO 11936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 15:59:07.015  INFO 11936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 15:59:07.023  INFO 11936 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 15:59:07 CST 2021
-2021-03-31 15:59:07.025  INFO 11936 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 3.084 seconds (JVM running for 4.294)
-2021-03-31 15:59:07.087  INFO 11936 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 15:59:07 CST 2021
-2021-03-31 15:59:13.941  INFO 11936 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 15:59:13.941  INFO 11936 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 15:59:13.942  INFO 11936 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-03-31 16:00:52.866  WARN 11936 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bx.community.exception.CustomizeException: 当前操作需要登录，请登陆后重试]
-2021-03-31 16:00:53.163  INFO 11936 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
-2021-03-31 16:00:53.193  INFO 11936 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-03-31 16:00:53.195  INFO 11936 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-03-31 16:00:53.211  INFO 11936 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-03-31 16:02:05.664  INFO 2760 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 2760 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
-2021-03-31 16:02:05.674  INFO 2760 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
-2021-03-31 16:02:05.728  INFO 2760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-03-31 16:02:05.728  INFO 2760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-03-31 16:02:05.736  WARN 2760 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-03-31 16:02:06.590  INFO 2760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-03-31 16:02:06.596  INFO 2760 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-31 16:02:06.596  INFO 2760 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-31 16:02:06.683  INFO 2760 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-31 16:02:06.684  INFO 2760 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 955 ms
-2021-03-31 16:02:06.714  INFO 2760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-31 16:02:07.147  INFO 2760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-31 16:02:07.151  INFO 2760 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
-2021-03-31 16:02:07.556  INFO 2760 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-31 16:02:07.609  INFO 2760 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-03-31 16:02:07.715  INFO 2760 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-03-31 16:02:07.786  INFO 2760 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-03-31 16:02:07.813  INFO 2760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-03-31 16:02:07.827  INFO 2760 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Wed Mar 31 16:02:07 CST 2021
-2021-03-31 16:02:07.830  INFO 2760 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.522 seconds (JVM running for 3.475)
-2021-03-31 16:02:07.890  INFO 2760 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Wed Mar 31 16:02:07 CST 2021
-2021-03-31 16:02:12.502  INFO 2760 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-31 16:02:12.502  INFO 2760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-31 16:02:12.503  INFO 2760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-04-01 00:10:17.873  INFO 4676 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 4676 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
+2021-04-01 00:10:17.879  INFO 4676 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2021-04-01 00:10:17.924  INFO 4676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-01 00:10:17.924  INFO 4676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-01 00:10:17.938  WARN 4676 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-04-01 00:10:18.849  INFO 4676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-01 00:10:18.857  INFO 4676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-01 00:10:18.857  INFO 4676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-01 00:10:18.993  INFO 4676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-01 00:10:18.993  INFO 4676 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1067 ms
+2021-04-01 00:10:19.046  INFO 4676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-01 00:10:19.541  INFO 4676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-01 00:10:19.547  INFO 4676 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
+2021-04-01 00:10:20.031  INFO 4676 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-01 00:10:20.084  INFO 4676 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-01 00:10:20.186  INFO 4676 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-01 00:10:20.260  INFO 4676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-01 00:10:20.287  INFO 4676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-01 00:10:20.295  INFO 4676 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Thu Apr 01 00:10:20 CST 2021
+2021-04-01 00:10:20.298  INFO 4676 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.735 seconds (JVM running for 3.598)
+2021-04-01 00:10:20.354  INFO 4676 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Thu Apr 01 00:10:20 CST 2021
+2021-04-01 00:10:23.427  INFO 4676 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-01 00:10:23.427  INFO 4676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-01 00:10:23.428  INFO 4676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-01 00:11:06.462  INFO 13408 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 13408 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
+2021-04-01 00:11:06.463  INFO 13408 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2021-04-01 00:11:06.500  INFO 13408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-01 00:11:06.501  INFO 13408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-01 00:11:06.512  WARN 13408 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-04-01 00:11:07.523  INFO 13408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-01 00:11:07.529  INFO 13408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-01 00:11:07.530  INFO 13408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-01 00:11:07.665  INFO 13408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-01 00:11:07.666  INFO 13408 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1164 ms
+2021-04-01 00:11:07.730  INFO 13408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-01 00:11:08.289  INFO 13408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-01 00:11:08.292  INFO 13408 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
+2021-04-01 00:11:08.765  INFO 13408 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-01 00:11:08.820  INFO 13408 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-01 00:11:08.943  INFO 13408 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-01 00:11:09.014  INFO 13408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-01 00:11:09.041  INFO 13408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-01 00:11:09.049  INFO 13408 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Thu Apr 01 00:11:09 CST 2021
+2021-04-01 00:11:09.051  INFO 13408 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.899 seconds (JVM running for 5.332)
+2021-04-01 00:11:09.107  INFO 13408 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Thu Apr 01 00:11:09 CST 2021
+2021-04-01 00:11:11.508  INFO 13408 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-01 00:11:11.508  INFO 13408 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-01 00:11:11.509  INFO 13408 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-01 00:15:30.715  INFO 7204 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 7204 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
+2021-04-01 00:15:30.718  INFO 7204 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2021-04-01 00:15:30.760  INFO 7204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-01 00:15:30.761  INFO 7204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-01 00:15:30.775  WARN 7204 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-04-01 00:15:31.593  INFO 7204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-01 00:15:31.599  INFO 7204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-01 00:15:31.599  INFO 7204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-01 00:15:31.682  INFO 7204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-01 00:15:31.682  INFO 7204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 921 ms
+2021-04-01 00:15:31.714  INFO 7204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-01 00:15:32.150  INFO 7204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-01 00:15:32.154  INFO 7204 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
+2021-04-01 00:15:32.604  INFO 7204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-01 00:15:32.688  INFO 7204 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-01 00:15:32.856  INFO 7204 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-01 00:15:32.932  INFO 7204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-01 00:15:32.959  INFO 7204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-01 00:15:32.967  INFO 7204 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Thu Apr 01 00:15:32 CST 2021
+2021-04-01 00:15:32.969  INFO 7204 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.581 seconds (JVM running for 3.412)
+2021-04-01 00:15:33.030  INFO 7204 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Thu Apr 01 00:15:33 CST 2021
+2021-04-01 00:15:36.704  INFO 7204 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-01 00:15:36.704  INFO 7204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-01 00:15:36.705  INFO 7204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-01 00:16:05.779  INFO 11676 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 11676 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
+2021-04-01 00:16:05.781  INFO 11676 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2021-04-01 00:16:05.825  INFO 11676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-01 00:16:05.826  INFO 11676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-01 00:16:05.837  WARN 11676 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-04-01 00:16:06.741  INFO 11676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-01 00:16:06.747  INFO 11676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-01 00:16:06.748  INFO 11676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-01 00:16:06.829  INFO 11676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-01 00:16:06.829  INFO 11676 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1002 ms
+2021-04-01 00:16:06.859  INFO 11676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-01 00:16:07.299  INFO 11676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-01 00:16:07.303  INFO 11676 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
+2021-04-01 00:16:07.708  INFO 11676 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-01 00:16:07.762  INFO 11676 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-01 00:16:07.866  INFO 11676 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-01 00:16:07.936  INFO 11676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-01 00:16:07.963  INFO 11676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-01 00:16:07.972  INFO 11676 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Thu Apr 01 00:16:07 CST 2021
+2021-04-01 00:16:07.975  INFO 11676 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.558 seconds (JVM running for 4.859)
+2021-04-01 00:16:08.043  INFO 11676 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Thu Apr 01 00:16:08 CST 2021
+2021-04-01 00:16:10.494  INFO 11676 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-01 00:16:10.494  INFO 11676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-01 00:16:10.496  INFO 11676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-01 00:16:28.383  INFO 10852 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 10852 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
+2021-04-01 00:16:28.389  INFO 10852 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2021-04-01 00:16:28.511  INFO 10852 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-01 00:16:28.512  INFO 10852 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-01 00:16:28.558  WARN 10852 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-04-01 00:16:30.806  INFO 10852 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-01 00:16:30.812  INFO 10852 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-01 00:16:30.812  INFO 10852 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-01 00:16:30.897  INFO 10852 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-01 00:16:30.898  INFO 10852 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2377 ms
+2021-04-01 00:16:30.931  INFO 10852 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-01 00:16:31.405  INFO 10852 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-01 00:16:31.409  INFO 10852 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
+2021-04-01 00:16:31.821  INFO 10852 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-01 00:16:31.873  INFO 10852 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-01 00:16:31.968  INFO 10852 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-01 00:16:32.040  INFO 10852 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-01 00:16:32.064  INFO 10852 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-01 00:16:32.071  INFO 10852 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Thu Apr 01 00:16:32 CST 2021
+2021-04-01 00:16:32.073  INFO 10852 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 4.748 seconds (JVM running for 6.001)
+2021-04-01 00:16:32.133  INFO 10852 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Thu Apr 01 00:16:32 CST 2021
+2021-04-01 00:16:35.236  INFO 10852 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-01 00:16:35.237  INFO 10852 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-01 00:16:35.239  INFO 10852 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-01 00:18:16.026  INFO 5516 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 5516 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
+2021-04-01 00:18:16.029  INFO 5516 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2021-04-01 00:18:16.077  INFO 5516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-01 00:18:16.078  INFO 5516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-01 00:18:16.097  WARN 5516 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-04-01 00:18:16.942  INFO 5516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-01 00:18:16.949  INFO 5516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-01 00:18:16.949  INFO 5516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-01 00:18:17.028  INFO 5516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-01 00:18:17.028  INFO 5516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 949 ms
+2021-04-01 00:18:17.060  INFO 5516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-01 00:18:17.529  INFO 5516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-01 00:18:17.533  INFO 5516 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
+2021-04-01 00:18:17.929  INFO 5516 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-01 00:18:17.983  INFO 5516 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-01 00:18:18.084  INFO 5516 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-01 00:18:18.155  INFO 5516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-01 00:18:18.186  INFO 5516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-01 00:18:18.193  INFO 5516 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Thu Apr 01 00:18:18 CST 2021
+2021-04-01 00:18:18.196  INFO 5516 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.52 seconds (JVM running for 3.344)
+2021-04-01 00:18:18.245  INFO 5516 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Thu Apr 01 00:18:18 CST 2021
+2021-04-01 00:18:19.936  INFO 5516 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-01 00:18:19.937  INFO 5516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-01 00:18:19.939  INFO 5516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-01 00:22:49.594  INFO 7272 --- [restartedMain] com.bx.community.CommunityApplication    : Starting CommunityApplication using Java 1.8.0_191 on LAPTOP-T8SEC5B9 with PID 7272 (E:\AAAFrequently-used\Project\MyGithubPublicProject\community\target\classes started by hbx in E:\AAAFrequently-used\Project\MyGithubPublicProject\community)
+2021-04-01 00:22:49.598  INFO 7272 --- [restartedMain] com.bx.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2021-04-01 00:22:49.648  INFO 7272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-01 00:22:49.649  INFO 7272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-01 00:22:49.658  WARN 7272 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-04-01 00:22:50.605  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-01 00:22:50.611  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-01 00:22:50.611  INFO 7272 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-01 00:22:50.688  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-01 00:22:50.689  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1039 ms
+2021-04-01 00:22:50.720  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-01 00:22:51.161  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-01 00:22:51.168  INFO 7272 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://127.0.0.1:3306/community?serverTimezone=UTC'
+2021-04-01 00:22:51.579  INFO 7272 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-01 00:22:51.634  INFO 7272 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-01 00:22:51.745  INFO 7272 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-01 00:22:51.816  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-01 00:22:51.842  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-01 00:22:51.856  INFO 7272 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule start Thu Apr 01 00:22:51 CST 2021
+2021-04-01 00:22:51.858  INFO 7272 --- [restartedMain] com.bx.community.CommunityApplication    : Started CommunityApplication in 2.615 seconds (JVM running for 3.488)
+2021-04-01 00:22:51.907  INFO 7272 --- [scheduling-1] com.bx.community.schedule.HotTagTasks    : hotTagSchedule stop Thu Apr 01 00:22:51 CST 2021
+2021-04-01 00:22:55.891  INFO 7272 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-01 00:22:55.891  INFO 7272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-01 00:22:55.891  INFO 7272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>码匠社区</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/community.css" rel="stylesheet">
+    <script src="/js/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:include="include/navigation :: nav"></div>
+<div class="jumbotron">
+    <h1>出错</h1>
+    <p th:text="${message}">服务器出错或页面不存在</p>
+    <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>
+</div>
+<div th:insert="~{include/footer :: foot}"></div>
+</body>
+</html>

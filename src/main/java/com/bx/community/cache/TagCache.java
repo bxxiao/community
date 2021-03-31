@@ -8,12 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by codedrinker on 2019/6/5.
- */
 public class TagCache {
-    public static List<TagDTO> get() {
-        List<TagDTO> tagDTOS = new ArrayList<>();
+    private static List<TagDTO> tagDTOS = new ArrayList<>();
+
+    static {
         TagDTO program = new TagDTO();
         program.setCategoryName("开发语言");
         program.setTags(Arrays.asList("javascript", "php", "css", "html", "html5", "java", "node.js", "python", "c++", "c", "golang", "objective-c", "typescript", "shell", "swift", "c#", "sass", "ruby", "bash", "less", "asp.net", "lua", "scala", "coffeescript", "actionscript", "rust", "erlang", "perl"));
@@ -39,6 +37,9 @@ public class TagCache {
         tool.setCategoryName("开发工具");
         tool.setTags(Arrays.asList("git", "github", "visual-studio-code", "vim", "sublime-text", "xcode intellij-idea", "eclipse", "maven", "ide", "svn", "visual-studio", "atom emacs", "textmate", "hg"));
         tagDTOS.add(tool);
+    }
+
+    public static List<TagDTO> get() {
         return tagDTOS;
     }
 
@@ -51,8 +52,13 @@ public class TagCache {
         return invalid;
     }
 
-    public static void main(String[] args) {
-        int i = (5 - 1) >>> 1;
-        System.out.println(i);
+    public static long getTagNum(){
+        long num = 0;
+
+        for (TagDTO tagDTO : tagDTOS) {
+            num += tagDTO.getTags().size();
+        }
+
+        return num;
     }
 }
