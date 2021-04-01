@@ -34,10 +34,9 @@ public class IndexController {
     public String index(Model model, @RequestParam(defaultValue = "1") Integer page,
                         @RequestParam(defaultValue = "5") Integer size,
                         @RequestParam(required = false) String search,
-                        @RequestParam(required = false) String tag,
-                        HttpSession session) {
+                        @RequestParam(required = false) String tag) {
         // 查询出所有question，用于在首页显示
-        PaginationDTO<QuestionDTO> pagination = service.listQuestion(search, size, page, tag);
+        PaginationDTO<QuestionDTO> pagination = service.listQuestion(search, size, page, tag, (byte)0);
         // 查询置顶的 question
         List<QuestionDTO> topQuestion = service.listTopQuestion();
         List<String> hotTags = hotTagCache.getHots();

@@ -152,4 +152,8 @@ public class CommentService {
         notification.setOuterTitle(outerTitle);
         notificationMapper.insert(notification);
     }
+
+    public long count() {
+        return commentMapper.countByExample(new CommentExample());
+    }
 }

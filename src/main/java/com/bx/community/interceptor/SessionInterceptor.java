@@ -34,8 +34,8 @@ public class SessionInterceptor implements HandlerInterceptor {
         // 如果 user 为 null ，从 cookie 获取 token ，尝试查询对应的 user
         if(user == null) {
             Cookie[] cookies = request.getCookies();
-            if (cookies != null && cookies.length > 0) {
-                for (Cookie cookie : cookies) {
+            if (cookies != null && cookies.length > 0)
+                for (Cookie cookie : cookies)
                     if ("token".equals(cookie.getName())) {
                         String token = cookie.getValue();
                         UserExample example = new UserExample();
@@ -44,14 +44,15 @@ public class SessionInterceptor implements HandlerInterceptor {
                         if (users != null && users.size() > 0) {
                             user = users.get(0);
                             session.setAttribute("user", user);
-                            // 放置未读通知数量
-                            Long unReadCount = notificationService.queryUnReadCount(user.getId());
-                            session.setAttribute("unReadCount", unReadCount);
-                            return true;
+                            break;
                         }
                     }
-                }
-            }
+        }
+        if (user != null) {
+            // 放置未读通知数量
+            Long unReadCount = notificationService.queryUnReadCount(user.getId());
+            session.setAttribute("unReadCount", unReadCount);
+            return true;
         }
 
         // 若user仍然为空，表示token不正确，抛出异常

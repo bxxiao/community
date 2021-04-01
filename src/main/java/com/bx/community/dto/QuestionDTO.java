@@ -16,4 +16,5 @@ public class QuestionDTO {
     private String tag;
     private String description;
     private User user;
+    private Byte top;
 }

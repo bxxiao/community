@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,13 +35,8 @@ public class QuestionService {
     @Autowired
     private QuestionExtMapper qExtMapper;
 
-    /**
-     * @param search
-     * @param size
-     * @param page
-     * @return
-     */
-    public PaginationDTO listQuestion(String search, Integer size, Integer page, String tag) {
+
+    public PaginationDTO listQuestion(String search, Integer size, Integer page, String tag, Byte top) {
         Integer offset = size * (page - 1);
 
         // 将搜索关键字按空格分开，用|相连，sql中用正则查询
@@ -56,6 +52,8 @@ public class QuestionService {
 
         // 查询并设置分页信息
         QuestionQueryDTO queryDTO = new QuestionQueryDTO();
+        // 是否查询被置顶
+        queryDTO.setTop(top);
         // 若 search 为空，置 null ，让 mybatis 可以正确拼装 sql 语句
         queryDTO.setSearch(search == null || search.trim().equals("") ? null : search);
         if(StringUtils.isNotBlank(tag)){
@@ -183,8 +181,8 @@ public class QuestionService {
     // 根据 Question 获取 QuestionDTO ，包含 user
     private List<QuestionDTO> getQuestionDTOS(List<Question> questions){
         List<QuestionDTO> questionDTOS = new ArrayList<>();
-        UserExample example = new UserExample();
         for (Question question : questions) {
+            UserExample example = new UserExample();
             example.or().andIdEqualTo(question.getCreator());
             User user = uMapper.selectByExample(example).get(0);
             QuestionDTO dto = new QuestionDTO();
@@ -193,5 +191,18 @@ public class QuestionService {
             questionDTOS.add(dto);
         }
         return questionDTOS;
+    }
+
+    public long count() {
+        return qMapper.countByExample(new QuestionExample());
+    }
+
+    public void setQuestionTop(Long questionId, Boolean isTop) {
+        Question question = new Question();
+        byte top = (byte) (isTop ? 1 : 0);
+        question.setId(questionId);
+        question.setTop(top);
+        question.setGmtModified(System.currentTimeMillis());
+        qMapper.updateByPrimaryKeySelective(question);
     }
 }

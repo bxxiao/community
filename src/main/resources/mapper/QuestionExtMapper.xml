@@ -70,8 +70,8 @@
                 and tag like #{tag}
             </if>
             <!-- 非置顶 -->
-            <if test="true">
-                and top = 0
+            <if test="top!=null">
+                and top = #{top}
             </if>
         </where>
     </select>
@@ -86,8 +86,8 @@
             <if test="tag!=null">
                 and tag like #{tag}
             </if>
-            <if test="true">
-                and top = 0
+            <if test="top!=null">
+                and top = #{top}
             </if>
         </where>
         order by gmt_create desc limit #{page}, #{size};

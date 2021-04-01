@@ -1,40 +1,41 @@
 package com.bx.community.service;
 
 import com.bx.community.cache.TagCache;
-import com.bx.community.mapper.CommentMapper;
-import com.bx.community.mapper.QuestionMapper;
-import com.bx.community.mapper.UserMapper;
-import com.bx.community.model.CommentExample;
-import com.bx.community.model.QuestionExample;
-import com.bx.community.model.UserExample;
+import com.bx.community.dto.PaginationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AdminService {
     @Autowired
-    private QuestionMapper questionMapper;
+    private QuestionService questionService;
 
     @Autowired
-    private CommentMapper commentMapper;
+    private CommentService commentService;
 
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
 
     public long queryQuestionNum() {
-        return questionMapper.countByExample(new QuestionExample());
+        return questionService.count();
     }
 
     public long queryCommentNum() {
-        return commentMapper.countByExample(new CommentExample());
+        return commentService.count();
     }
 
     public long queryUserNum() {
-        return userMapper.countByExample(new UserExample());
+        return userService.count();
     }
 
     public long queryTagNum() {
         return TagCache.getTagNum();
+    }
+
+    public PaginationDTO listQuestion(int page) {
+        int size = 10;
+        PaginationDTO paginationDTO = questionService.listQuestion(null, size, page, null, null);
+        return paginationDTO;
     }
 }

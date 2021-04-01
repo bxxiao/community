@@ -1,5 +1,6 @@
 package com.bx.community.controller.admin;
 
+import com.bx.community.dto.PaginationDTO;
 import com.bx.community.exception.AdminException;
 import com.bx.community.service.AdminService;
 import org.apache.commons.lang3.StringUtils;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,14 +48,28 @@ public class AdminController {
     }
 
     @RequestMapping("/{section}")
-    public String toPage(Model model, @PathVariable String section){
+    public String toPage(Model model, @PathVariable String section,
+                         @RequestParam(required = false, defaultValue = "1") Integer page){
         String sectionName;
         if(StringUtils.isBlank(section) || (sectionName = sectionMap.get(section)) == null)
             throw new AdminException();
 
+        switch (section){
+            case "question":
+                setQuestionData(model, page);
+                break;
+            default:
+                break;
+        }
+
         model.addAttribute("section", section);
         model.addAttribute("sectionName", sectionName);
         return "admin/" + section;
+    }
+
+    private void setQuestionData(Model model, Integer page) {
+        PaginationDTO paginationDTO = service.listQuestion(page);
+        model.addAttribute("pagination", paginationDTO);
     }
 
     @RequestMapping("/logout")
